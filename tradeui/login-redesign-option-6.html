@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeUI Login Redesign - Option 6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#f8f8f3;--ink:#181818;--muted:#5a5a5a;--line:#222;--card:#fff;--accent:#b9ff39;--accent-dark:#6ca90a}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;font-family:"Plus Jakarta Sans","Noto Sans TC",sans-serif;color:var(--ink);background:repeating-linear-gradient(135deg,rgba(24,24,24,.04) 0 12px,rgba(24,24,24,0) 12px 24px),var(--bg);padding:14px}
+    .site-header{width:min(1180px,100%);margin:0 auto;border:2px solid var(--line);border-radius:0;background:#fff;padding:10px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:10px;z-index:30;box-shadow:8px 8px 0 #121212}
+    .brand{font-family:"Archivo Black",sans-serif;letter-spacing:.04em;white-space:nowrap}
+    .menu{flex:1 1 auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.menu-item{position:relative}
+    .menu-item>a{text-decoration:none;color:#333;font-size:.8rem;font-weight:700;border:1px solid transparent;padding:7px 9px;display:inline-flex;align-items:center;gap:6px}
+    .menu-item>a::after{content:"▾";font-size:.7rem;opacity:.7}.menu-item.no-dropdown>a::after{content:none}.menu-item>a:hover,.menu-item:focus-within>a{border-color:#1d1d1d;background:#f3f3f3}
+    .submenu{position:absolute;top:calc(100% + 6px);left:0;min-width:220px;padding:8px;border:2px solid var(--line);background:#fff;box-shadow:6px 6px 0 #121212;display:none;gap:4px;z-index:80}
+    .menu-item:hover .submenu,.menu-item:focus-within .submenu{display:grid}.submenu a{text-decoration:none;color:#232323;font-size:.8rem;font-weight:600;padding:8px 10px;border:1px solid transparent}.submenu a:hover{border-color:#232323;background:#f7f7f7}
+    .lang{margin-left:auto;display:inline-flex;gap:6px}.lang button{border:2px solid var(--line);background:#fff;color:#333;padding:5px 9px;font:inherit;font-size:.74rem;cursor:pointer}.lang button.active,.lang button:hover{background:var(--accent);border-color:#111}
+    .hero{width:min(1180px,100%);margin:18px auto 0;border:2px solid var(--line);box-shadow:10px 10px 0 #121212;background:#fff;padding:22px;display:grid;gap:16px}
+    .hero h1{font-family:"Archivo Black",sans-serif;font-size:clamp(2rem,6vw,3.8rem);line-height:.92;max-width:14ch;text-transform:uppercase}
+    .hero p{color:var(--muted);max-width:58ch;line-height:1.7;font-size:.94rem}
+    .flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.step{border:2px solid #161616;background:#fdfdfd;padding:10px;font-size:.82rem;font-weight:700}
+    .auth{width:min(740px,100%);border:2px solid var(--line);box-shadow:10px 10px 0 #121212;background:var(--card);padding:22px;margin:0 auto;display:grid;gap:12px}
+    .auth h2{font-family:"Archivo Black",sans-serif;font-size:1.6rem}.field{margin-bottom:10px}label{display:block;margin-bottom:6px;font-size:.82rem;font-weight:700;color:#2f2f2f}
+    input{width:100%;border:2px solid #202020;border-radius:0;background:#fff;padding:11px;font:inherit;color:var(--ink)}input:focus{outline:none;border-color:var(--accent-dark);box-shadow:0 0 0 3px rgba(185,255,57,.36)}
+    .links{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}.links a{color:#1d1d1d;font-weight:700;text-decoration:underline}
+    .actions{display:grid;grid-template-columns:1fr auto;gap:8px}.btn{border:2px solid #101010;border-radius:0;padding:10px 12px;font:inherit;font-weight:700;cursor:pointer}.btn.primary{background:var(--accent);color:#101010}.btn.secondary{background:#fff;color:#333;min-width:90px}
+    .copy{font-size:.75rem;color:#555;text-align:center}
+    @media (max-width:960px){.menu{justify-content:flex-start}.menu-item{width:100%}.menu-item>a{width:100%;justify-content:space-between}.submenu{position:static;min-width:100%;box-shadow:none}.lang{width:100%;margin-left:0}.flow{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.btn.secondary{min-width:0}.site-header,.hero,.auth{box-shadow:6px 6px 0 #121212}}
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="主選單">
+    <div class="brand">ARISTO BLOCK MODE</div>
+    <nav class="menu" aria-label="主要導覽">
+      <div class="menu-item no-dropdown"><a href="#">首頁</a></div>
+      <div class="menu-item"><a href="#">關於我們</a><div class="submenu"><a href="#">關於我們</a><a href="#">網上交易平台</a><a href="#">手機應用程式</a><a href="#">收費及佣金</a></div></div>
+      <div class="menu-item"><a href="#">服務</a><div class="submenu"><a href="#">即時報價</a><a href="#">新股認購申請</a><a href="#">證劵交易</a><a href="#">月供股票</a><a href="#">新股暗盤交易</a><a href="#">滬港通及深港通</a><a href="#">Aristo 炒輪王</a><a href="#">揀輪神器</a></div></div>
+      <div class="menu-item"><a href="#">客戶服務</a><div class="submenu"><a href="#">賬戶提存</a><a href="#">開設戶口</a><a href="#">常見問題</a><a href="#">影片教學</a></div></div>
+      <div class="menu-item"><a href="#">下載區</a><div class="submenu"><a href="#">下載區</a></div></div>
+      <div class="menu-item"><a href="#">聯絡我們</a><div class="submenu"><a href="#">聯絡我們</a><a href="#">人才招聘</a></div></div>
+    </nav>
+    <nav class="lang" aria-label="語言切換"><button class="active" type="button">繁體</button><button type="button">简体</button><button type="button">English</button></nav>
+  </header>
+  <main class="hero">
+    <h1>NOT MINIMAL. NOT SAFE. JUST CLEAR.</h1>
+    <p>Option 6 deliberately avoids soft gradients and rounded glass. It uses hard edges, offset shadows, and a bold step flow so the visual language is unmistakably different.</p>
+    <div class="flow"><article class="step">STEP 1 / VERIFY ACCOUNT</article><article class="step">STEP 2 / AUTHENTICATE USER</article><article class="step">STEP 3 / ENTER TRADING DESK</article></div>
+    <section class="auth" aria-label="登入表單">
+      <h2>登入 TradeUI</h2>
+      <form>
+        <div class="field"><label for="username6">賬戶編號 / 用戶名稱</label><input id="username6" type="text" autocomplete="username" placeholder="輸入賬戶或用戶名稱" /></div>
+        <div class="field"><label for="password6">用戶密碼</label><input id="password6" type="password" autocomplete="current-password" placeholder="輸入用戶密碼" /></div>
+        <div class="links"><a href="#">首次登入</a><a href="#">忘記密碼?</a></div>
+        <div class="actions"><button class="btn primary" type="submit">確定登入</button><button class="btn secondary" type="button">清除</button></div>
+      </form>
+      <p class="copy">Copyright 2014 Aristo Securities Limited. All rights reserved.</p>
+    </section>
+  </main>
+</body>
+</html>

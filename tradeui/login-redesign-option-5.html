@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeUI Login Redesign - Option 5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=DM+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#0e1628;--line:rgba(120,154,215,.24);--ink:#e5eeff;--muted:#9bb2d7;--blue:#58a6ff;--mint:#22d3aa;--amber:#ffb34f}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;font-family:"DM Sans","Noto Sans TC",sans-serif;color:var(--ink);background:radial-gradient(circle at 6% 4%,rgba(88,166,255,.2),transparent 30%),radial-gradient(circle at 90% 88%,rgba(34,211,170,.16),transparent 34%),var(--bg);padding:16px}
+    .site-header{width:min(1280px,100%);margin:0 auto;border:1px solid var(--line);border-radius:16px;background:rgba(14,22,40,.86);backdrop-filter:blur(8px);padding:10px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:10px;z-index:30}
+    .brand{font-family:"Sora",sans-serif;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+    .menu{flex:1 1 auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.menu-item{position:relative}
+    .menu-item>a{text-decoration:none;color:var(--muted);font-size:.8rem;font-weight:700;padding:8px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+    .menu-item>a::after{content:"▾";font-size:.7rem;opacity:.7}.menu-item.no-dropdown>a::after{content:none}.menu-item>a:hover,.menu-item:focus-within>a{background:rgba(88,166,255,.16);color:#d8e8ff}
+    .submenu{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;padding:8px;border:1px solid var(--line);border-radius:14px;background:rgba(21,33,57,.98);box-shadow:0 16px 26px rgba(5,10,20,.44);display:none;gap:4px;z-index:80}
+    .menu-item:hover .submenu,.menu-item:focus-within .submenu{display:grid}.submenu a{text-decoration:none;color:var(--ink);font-size:.8rem;font-weight:600;border-radius:10px;padding:8px 10px}.submenu a:hover{background:rgba(34,211,170,.16);color:#b8ffeb}
+    .lang{margin-left:auto;display:inline-flex;gap:6px}.lang button{border:1px solid var(--line);border-radius:999px;background:rgba(17,29,50,.9);color:var(--muted);padding:6px 9px;font:inherit;font-size:.74rem;cursor:pointer}.lang button.active,.lang button:hover{color:#d8e8ff;border-color:rgba(88,166,255,.4)}
+    .shell{width:min(1280px,100%);margin:14px auto 0;display:grid;grid-template-columns:1.4fr .9fr;gap:14px;align-items:start}
+    .board{border:1px solid var(--line);border-radius:22px;background:rgba(17,28,48,.92);padding:20px;display:grid;gap:12px}
+    .headline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+    .headline h1{font-family:"Sora",sans-serif;font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.02;max-width:16ch}
+    .pulse{border:1px solid rgba(34,211,170,.45);color:#9af8df;background:rgba(34,211,170,.16);border-radius:999px;padding:6px 10px;font-size:.78rem;font-weight:700;white-space:nowrap;width:fit-content}
+    .tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .tile{border:1px solid var(--line);border-radius:14px;background:rgba(21,35,58,.98);padding:12px;min-height:110px;display:grid;gap:8px;align-content:start}
+    .tile b{font-size:1.1rem}.tile span{color:var(--muted);font-size:.78rem}.tile.green{border-color:rgba(34,211,170,.4)}.tile.amber{border-color:rgba(255,179,79,.46)}
+    .mini-feed{border:1px solid var(--line);border-radius:14px;background:rgba(17,30,50,.96);padding:12px;color:var(--muted);font-size:.82rem;line-height:1.6}
+    .auth-drawer{border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,rgba(22,35,58,.98),rgba(17,26,44,.98));padding:20px;position:sticky;top:84px}
+    .auth-drawer h2{margin-bottom:10px}.hint{color:var(--muted);font-size:.85rem;margin-bottom:14px}.field{margin-bottom:10px}
+    label{display:block;margin-bottom:6px;font-size:.82rem;font-weight:700;color:#c0d3f0}
+    input{width:100%;border:1px solid var(--line);border-radius:12px;background:rgba(8,13,24,.5);color:var(--ink);padding:11px;font:inherit}input:focus{outline:none;border-color:rgba(88,166,255,.5);box-shadow:0 0 0 3px rgba(88,166,255,.16)}
+    .links{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:12px}.links a{color:var(--amber);text-decoration:none;font-size:.82rem;font-weight:700}.links a:hover{text-decoration:underline}
+    .actions{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:10px}.btn{border:1px solid transparent;border-radius:12px;padding:10px 12px;font:inherit;font-weight:700;cursor:pointer}.btn.primary{background:linear-gradient(135deg,#3c8dff,#5aa8ff);color:#041226}.btn.secondary{background:rgba(13,21,35,.9);color:var(--muted);border-color:var(--line);min-width:90px}
+    .copy{font-size:.74rem;color:#7e9bc7;text-align:center}
+    @media (max-width:1020px){.shell{grid-template-columns:1fr}.auth-drawer{position:static}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.menu{justify-content:flex-start}.menu-item{width:100%}.menu-item>a{width:100%;justify-content:space-between}.submenu{position:static;min-width:100%}.lang{width:100%;margin-left:0}.actions{grid-template-columns:1fr}.btn.secondary{min-width:0}}
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="主選單">
+    <div class="brand">ARISTO LIVE BOARD</div>
+    <nav class="menu" aria-label="主要導覽">
+      <div class="menu-item no-dropdown"><a href="#">首頁</a></div>
+      <div class="menu-item"><a href="#">關於我們</a><div class="submenu"><a href="#">關於我們</a><a href="#">網上交易平台</a><a href="#">手機應用程式</a><a href="#">收費及佣金</a></div></div>
+      <div class="menu-item"><a href="#">服務</a><div class="submenu"><a href="#">即時報價</a><a href="#">新股認購申請</a><a href="#">證劵交易</a><a href="#">月供股票</a><a href="#">新股暗盤交易</a><a href="#">滬港通及深港通</a><a href="#">Aristo 炒輪王</a><a href="#">揀輪神器</a></div></div>
+      <div class="menu-item"><a href="#">客戶服務</a><div class="submenu"><a href="#">賬戶提存</a><a href="#">開設戶口</a><a href="#">常見問題</a><a href="#">影片教學</a></div></div>
+      <div class="menu-item"><a href="#">下載區</a><div class="submenu"><a href="#">下載區</a></div></div>
+      <div class="menu-item"><a href="#">聯絡我們</a><div class="submenu"><a href="#">聯絡我們</a><a href="#">人才招聘</a></div></div>
+    </nav>
+    <nav class="lang" aria-label="語言切換"><button class="active" type="button">繁體</button><button type="button">简体</button><button type="button">English</button></nav>
+  </header>
+  <main class="shell">
+    <section class="board">
+      <div class="headline"><h1>資料看板先行，登入抽屜後置</h1><span class="pulse">Option 5 • Dashboard + Drawer</span></div>
+      <div class="tiles">
+        <article class="tile"><span>HSI</span><b>19,230.15</b><span>+0.82%</span></article>
+        <article class="tile green"><span>Turnover</span><b>HKD 84.3B</b><span>Realtime feed</span></article>
+        <article class="tile"><span>USD/HKD</span><b>7.8132</b><span>Stable channel</span></article>
+        <article class="tile amber"><span>Signal</span><b>Watchlist</b><span>Volatility up</span></article>
+        <article class="tile"><span>Mobile</span><b>44px+</b><span>Tap targets</span></article>
+        <article class="tile"><span>Tablet</span><b>Optimized</b><span>Landscape & portrait</span></article>
+        <article class="tile"><span>Latency</span><b>&lt; 100ms</b><span>UI response target</span></article>
+        <article class="tile"><span>Auth</span><b>Single step</b><span>Fast access</span></article>
+      </div>
+      <div class="mini-feed">This concept intentionally feels like a trading cockpit: metrics first, authentication as an attached drawer. It is visually and structurally different from a classic hero + centered card pattern.</div>
+    </section>
+    <section class="auth-drawer" aria-label="登入表單">
+      <h2>登入 TradeUI</h2><p class="hint">請輸入賬戶憑證以進入交易介面</p>
+      <form>
+        <div class="field"><label for="username5">賬戶編號 / 用戶名稱</label><input id="username5" type="text" autocomplete="username" placeholder="輸入賬戶或用戶名稱" /></div>
+        <div class="field"><label for="password5">用戶密碼</label><input id="password5" type="password" autocomplete="current-password" placeholder="輸入用戶密碼" /></div>
+        <div class="links"><a href="#">首次登入</a><a href="#">忘記密碼?</a></div>
+        <div class="actions"><button class="btn primary" type="submit">確定登入</button><button class="btn secondary" type="button">清除</button></div>
+      </form>
+      <p class="copy">Copyright 2014 Aristo Securities Limited. All rights reserved.</p>
+    </section>
+  </main>
+</body>
+</html>

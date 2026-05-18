@@ -1,0 +1,697 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeUI Login Redesign - Option 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f1117;
+      --text: #1c2330;
+      --muted: #647089;
+      --card: rgba(255, 255, 255, 0.88);
+      --line: rgba(13, 35, 73, 0.18);
+      --blue: #1769ff;
+      --teal: #10b6b2;
+      --amber: #ffbf3f;
+      --danger: #cb4a30;
+      --radius-xl: 28px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Public Sans", "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(16, 182, 178, 0.18), transparent 38%),
+        radial-gradient(circle at 88% 84%, rgba(255, 191, 63, 0.2), transparent 32%),
+        linear-gradient(155deg, #eef4ff 0%, #f4faff 46%, #f6fff9 100%);
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 280px;
+      height: 280px;
+      border-radius: 46% 54% 58% 42% / 44% 38% 62% 56%;
+      background: linear-gradient(120deg, rgba(23, 105, 255, 0.26), rgba(16, 182, 178, 0.1));
+      left: -72px;
+      top: -70px;
+    }
+
+    body::after {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 191, 63, 0.35), rgba(255, 191, 63, 0));
+      right: -100px;
+      bottom: -88px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1180px, calc(100vw - 28px));
+      z-index: 20;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(24, 70, 140, 0.14);
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .site-brand::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(16, 182, 178, 0.16);
+    }
+
+    .menu {
+      display: flex;
+      flex: 1 1 auto;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .menu-item > a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .menu-item > a::after {
+      content: "▾";
+      font-size: 0.72rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .menu-item.no-dropdown > a::after {
+      content: none;
+    }
+
+    .menu-item > a:hover,
+    .menu-item:focus-within > a {
+      color: var(--blue);
+      background: rgba(23, 105, 255, 0.12);
+    }
+
+    .submenu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 16px 28px rgba(24, 70, 140, 0.16);
+      display: none;
+      z-index: 100;
+    }
+
+    .menu-item:hover .submenu,
+    .menu-item:focus-within .submenu {
+      display: grid;
+      gap: 4px;
+    }
+
+    .submenu a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 9px 10px;
+      border-radius: 12px;
+      transition: 0.2s ease;
+    }
+
+    .submenu a:hover {
+      background: rgba(23, 105, 255, 0.12);
+      color: #0f3f9a;
+    }
+    .lang-float {
+      position: static;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      max-width: none;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+
+    .lang-float button {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
+      color: #4f5f7d;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.76rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .lang-float button.active,
+    .lang-float button:hover {
+      color: var(--blue);
+      border-color: rgba(23, 105, 255, 0.45);
+      background: rgba(233, 242, 255, 0.9);
+    }
+
+    .auth-shell {
+      width: min(520px, 100%);
+      position: relative;
+      z-index: 2;
+      justify-self: center;
+      margin-inline: auto;
+      animation: cardEnter 600ms ease-out;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(16, 182, 178, 0.35);
+      background: rgba(236, 255, 254, 0.85);
+      color: #0d6f6b;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(16, 182, 178, 0.16);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 24px 52px rgba(9, 34, 70, 0.16);
+      padding: 24px;
+    }
+
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .brand h1 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.55rem, 5vw, 2.2rem);
+      line-height: 1.05;
+      letter-spacing: 0.2px;
+    }
+
+    .brand small {
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-align: right;
+    }
+
+    .intro {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 0.84rem;
+      color: #2f4764;
+      font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.92);
+      padding: 13px;
+      font: inherit;
+      font-size: 0.94rem;
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: rgba(23, 105, 255, 0.48);
+      box-shadow: 0 0 0 3px rgba(23, 105, 255, 0.15);
+      background: #fff;
+    }
+
+    .checks {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      color: #61718b;
+      font-size: 0.86rem;
+    }
+
+    .checks label {
+      margin: 0;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .quick {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .quick a {
+      color: var(--danger);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .quick a:hover {
+      text-decoration: underline;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--blue), #1f7bff);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(23, 105, 255, 0.28);
+    }
+
+    .btn.primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.94);
+      border-color: var(--line);
+      color: #52627c;
+      min-width: 96px;
+    }
+
+    .btn.secondary:hover {
+      background: #f5f9ff;
+    }
+
+    .micro {
+      border-top: 1px dashed rgba(97, 113, 139, 0.35);
+      padding-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 0.76rem;
+      color: #6d7c95;
+    }
+
+    .micro span {
+      border: 1px solid rgba(97, 113, 139, 0.26);
+      border-radius: 10px;
+      padding: 7px 8px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .copyright {
+      text-align: center;
+      color: #72819a;
+      font-size: 0.76rem;
+      margin-top: 10px;
+    }
+
+    @keyframes cardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 14px;
+      }
+
+      .site-header {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1180px, calc(100vw - 28px));
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(24, 70, 140, 0.14);
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .site-brand::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(16, 182, 178, 0.16);
+    }
+
+    .menu {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .menu-item > a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .menu-item > a::after {
+      content: "▾";
+      font-size: 0.72rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .menu-item.no-dropdown > a::after {
+      content: none;
+    }
+
+    .menu-item > a:hover,
+    .menu-item:focus-within > a {
+      color: var(--blue);
+      background: rgba(23, 105, 255, 0.12);
+    }
+
+    .submenu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 16px 28px rgba(24, 70, 140, 0.16);
+      display: none;
+      z-index: 100;
+    }
+
+    .menu-item:hover .submenu,
+    .menu-item:focus-within .submenu {
+      display: grid;
+      gap: 4px;
+    }
+
+    .submenu a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 9px 10px;
+      border-radius: 12px;
+      transition: 0.2s ease;
+    }
+
+    .submenu a:hover {
+      background: rgba(23, 105, 255, 0.12);
+      color: #0f3f9a;
+    }
+      .lang-float {
+        position: static;
+        margin: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .auth-shell {
+        width: 100%;
+      }
+
+      .card {
+        border-radius: 20px;
+        padding: 18px;
+      }
+
+      .brand {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand small {
+        text-align: left;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .btn.secondary {
+        min-width: 0;
+      }
+
+      .micro {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="主選單">
+    <div class="site-brand">Aristo Securities</div>
+    <nav class="menu" aria-label="主要導覽">
+      <div class="menu-item no-dropdown"><a href="#">首頁</a></div>
+      <div class="menu-item">
+        <a href="#">關於我們</a>
+        <div class="submenu" role="menu" aria-label="關於我們子選單">
+          <a href="#">關於我們</a>
+          <a href="#">網上交易平台</a>
+          <a href="#">手機應用程式</a>
+          <a href="#">收費及佣金</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">服務</a>
+        <div class="submenu" role="menu" aria-label="服務子選單">
+          <a href="#">即時報價</a>
+          <a href="#">新股認購申請</a>
+          <a href="#">證劵交易</a>
+          <a href="#">月供股票</a>
+          <a href="#">新股暗盤交易</a>
+          <a href="#">滬港通及深港通</a>
+          <a href="#">Aristo 炒輪王</a>
+          <a href="#">揀輪神器</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">客戶服務</a>
+        <div class="submenu" role="menu" aria-label="客戶服務子選單">
+          <a href="#">賬戶提存</a>
+          <a href="#">開設戶口</a>
+          <a href="#">常見問題</a>
+          <a href="#">影片教學</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">下載區</a>
+        <div class="submenu" role="menu" aria-label="下載區子選單">
+          <a href="#">下載區</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">聯絡我們</a>
+        <div class="submenu" role="menu" aria-label="聯絡我們子選單">
+          <a href="#">聯絡我們</a>
+          <a href="#">人才招聘</a>
+        </div>
+      </div>
+    </nav>
+    <nav class="lang-float" aria-label="語言切換">
+      <button class="active" type="button">繁體</button>
+      <button type="button">简体</button>
+      <button type="button">English</button>
+    </nav>
+  </header>
+
+  <main class="auth-shell">
+    <span class="badge">Option 2 • Orbit Single Card</span>
+
+    <section class="card" aria-label="登入區域">
+      <div class="brand">
+        <h1>Aristo TradeUI 登入</h1>
+        <small>Secure client access<br />24/7 available</small>
+      </div>
+
+      <p class="intro">這一版改為單卡片中心式登入，完全移除「上方 header + 下方雙面板」結構，與 Option 1 及 Option 3 在版型層級上有明顯區別。</p>
+
+      <form>
+        <div class="field">
+          <label for="username2">賬戶編號 / 用戶名稱</label>
+          <input id="username2" type="text" autocomplete="username" placeholder="輸入賬戶或用戶名稱" />
+        </div>
+
+        <div class="field">
+          <label for="password2">用戶密碼</label>
+          <input id="password2" type="password" autocomplete="current-password" placeholder="輸入用戶密碼" />
+        </div>
+
+        <div class="checks">
+          <label><input type="checkbox" checked /> 記住用戶名稱</label>
+          <label><input type="checkbox" /> 記住用戶密碼</label>
+        </div>
+
+        <div class="quick">
+          <a href="#">首次登入</a>
+          <a href="#">忘記密碼?</a>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">確定登入</button>
+          <button class="btn secondary" type="button">清除</button>
+        </div>
+      </form>
+
+      <div class="micro">
+        <span>Mobile-ready</span>
+        <span>Tablet-friendly</span>
+        <span>Touch optimized</span>
+      </div>
+    </section>
+
+    <p class="copyright">Copyright 2014 Aristo Securities Limited. All rights reserved.</p>
+  </main>
+</body>
+</html>
+
+
+
+
+

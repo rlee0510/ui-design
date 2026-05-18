@@ -1,0 +1,608 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeUI Login Redesign - Option 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --night: #07111d;
+      --panel: #0f1e31;
+      --panel-soft: #142844;
+      --line: rgba(130, 170, 214, 0.24);
+      --text: #e7f2ff;
+      --muted: #9ab5d6;
+      --cyan: #43d3e5;
+      --lime: #b9ef6b;
+      --danger: #ff8b7c;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(67, 211, 229, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(185, 239, 107, 0.11) 0%, transparent 45%),
+        linear-gradient(180deg, #081525 0%, var(--night) 100%);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at 55% 35%, black 35%, transparent 95%);
+      z-index: -2;
+    }
+
+    body::after {
+      background: linear-gradient(115deg, rgba(67, 211, 229, 0.1), rgba(185, 239, 107, 0.03));
+      z-index: -3;
+    }
+
+    .top {
+      position: relative;
+      z-index: 20;
+      width: min(1180px, 92vw);
+      margin: 16px auto 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(11, 24, 41, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      font-size: 1rem;
+    }
+
+    .top nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .top button,
+    .menu-item > a {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 9px;
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .menu-item > a::after {
+      content: "▾";
+      font-size: 0.72rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .menu-item.no-dropdown > a::after {
+      content: none;
+    }
+
+    .top button.active,
+    .top button:hover,
+    .menu-item > a:hover,
+    .menu-item:focus-within > a {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(67, 211, 229, 0.09);
+    }
+
+    .submenu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(11, 24, 41, 0.96);
+      box-shadow: 0 16px 30px rgba(2, 8, 17, 0.45);
+      display: none;
+      z-index: 100;
+    }
+
+    .menu-item:hover .submenu,
+    .menu-item:focus-within .submenu {
+      display: grid;
+      gap: 4px;
+    }
+
+    .submenu a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 9px 10px;
+      border-radius: 12px;
+      transition: 0.2s ease;
+    }
+
+    .submenu a:hover {
+      background: rgba(67, 211, 229, 0.09);
+      color: #fff;
+    }
+
+    .top strong {
+      letter-spacing: 0.4px;
+      font-size: 1rem;
+    }
+
+    .top nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .top button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 9px;
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .top button.active,
+    .top button:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(67, 211, 229, 0.09);
+    }
+
+    .shell {
+      width: min(1180px, 92vw);
+      margin: 24px auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .intro {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(155deg, rgba(20, 40, 68, 0.86), rgba(10, 24, 42, 0.95));
+      padding: clamp(22px, 4vw, 44px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      right: -90px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(67, 211, 229, 0.24), rgba(67, 211, 229, 0));
+      pointer-events: none;
+    }
+
+    .chip {
+      display: inline-block;
+      border: 1px solid rgba(185, 239, 107, 0.45);
+      color: var(--lime);
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+      background: rgba(185, 239, 107, 0.08);
+    }
+
+    .intro h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+      max-width: 13ch;
+    }
+
+    .intro p {
+      max-width: 44ch;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(8, 17, 29, 0.45);
+    }
+
+    .stat b {
+      display: block;
+      color: var(--cyan);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(15, 30, 49, 0.95), rgba(11, 24, 41, 0.95));
+      box-shadow: 0 24px 45px rgba(2, 8, 17, 0.55);
+      padding: clamp(20px, 3vw, 30px);
+      animation: pulseIn 600ms ease-out;
+    }
+
+    .card h2 {
+      margin-bottom: 6px;
+      font-size: 1.45rem;
+      letter-spacing: 0.2px;
+    }
+
+    .hint {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 0.86rem;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 0.88rem;
+      color: #bfcee4;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      border: 1px solid rgba(130, 170, 214, 0.35);
+      background: rgba(6, 15, 27, 0.64);
+      border-radius: 10px;
+      color: var(--text);
+      padding: 12px 13px;
+      font-size: 0.96rem;
+      transition: 0.2s ease;
+    }
+
+    input::placeholder {
+      color: #8198b5;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(67, 211, 229, 0.18);
+    }
+
+    .opts {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 8px 0 18px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .opts .keep {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .opts label {
+      margin: 0;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .opts a {
+      color: var(--danger);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .opts a:hover {
+      text-decoration: underline;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 11px 14px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      flex: 1;
+      background: linear-gradient(135deg, var(--cyan), #2e92c7);
+      color: #062032;
+    }
+
+    .btn.primary:hover {
+      filter: brightness(1.06);
+    }
+
+    .btn.secondary {
+      border-color: var(--line);
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .btn.secondary:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+      background: rgba(185, 239, 107, 0.08);
+    }
+
+    footer {
+      text-align: center;
+      color: #7890af;
+      font-size: 0.8rem;
+      padding: 4px 16px 18px;
+    }
+
+    @keyframes pulseIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top {
+        padding: 10px 12px;
+        border-radius: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .top nav {
+        width: 100%;
+      }
+
+      .menu-item {
+        width: 100%;
+      }
+
+      .menu-item > a,
+      .top button {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .submenu {
+        position: static;
+        min-width: 100%;
+        margin-top: 6px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .opts {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header class="top" aria-label="主選單">
+    <div class="brand">ARISTO TRADEUI // NEXT</div>
+    <nav aria-label="主要導覽">
+      <div class="menu-item no-dropdown"><a href="#">首頁</a></div>
+      <div class="menu-item">
+        <a href="#">關於我們</a>
+        <div class="submenu" role="menu" aria-label="關於我們子選單">
+          <a href="#">關於我們</a>
+          <a href="#">網上交易平台</a>
+          <a href="#">手機應用程式</a>
+          <a href="#">收費及佣金</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">服務</a>
+        <div class="submenu" role="menu" aria-label="服務子選單">
+          <a href="#">即時報價</a>
+          <a href="#">新股認購申請</a>
+          <a href="#">證劵交易</a>
+          <a href="#">月供股票</a>
+          <a href="#">新股暗盤交易</a>
+          <a href="#">滬港通及深港通</a>
+          <a href="#">Aristo 炒輪王</a>
+          <a href="#">揀輪神器</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">客戶服務</a>
+        <div class="submenu" role="menu" aria-label="客戶服務子選單">
+          <a href="#">賬戶提存</a>
+          <a href="#">開設戶口</a>
+          <a href="#">常見問題</a>
+          <a href="#">影片教學</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">下載區</a>
+        <div class="submenu" role="menu" aria-label="下載區子選單">
+          <a href="#">下載區</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="#">聯絡我們</a>
+        <div class="submenu" role="menu" aria-label="聯絡我們子選單">
+          <a href="#">聯絡我們</a>
+          <a href="#">人才招聘</a>
+        </div>
+      </div>
+      <button class="active" type="button">繁體</button>
+      <button type="button">简体</button>
+      <button type="button">English</button>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <span class="chip">Option 3 • Market Grid</span>
+      <h1>高對比、快節奏、偏交易終端感</h1>
+      <p>這個版本保留品牌可信度，同時加入更鮮明的數據感語言。適合想把登入頁做出較現代金融平台風格的方向。</p>
+      <div class="stats">
+        <div class="stat">
+          <b>44px+</b>
+          <span>Mobile tap targets</span>
+        </div>
+        <div class="stat">
+          <b>AA</b>
+          <span>Contrast priority</span>
+        </div>
+        <div class="stat">
+          <b>1 page</b>
+          <span>Fast login funnel</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="登入表單">
+      <h2>登入</h2>
+      <p class="hint">請輸入賬戶憑證並驗證身分</p>
+      <form>
+        <div class="field">
+          <label for="username3">賬戶編號 / 用戶名稱</label>
+          <input id="username3" type="text" autocomplete="username" placeholder="example: A123456" />
+        </div>
+
+        <div class="field">
+          <label for="password3">用戶密碼</label>
+          <input id="password3" type="password" autocomplete="current-password" placeholder="請輸入密碼" />
+        </div>
+
+        <div class="opts">
+          <div class="keep">
+            <label><input type="checkbox" checked /> 記住用戶名稱</label>
+            <label><input type="checkbox" /> 記住用戶密碼</label>
+          </div>
+          <div>
+            <a href="#">首次登入</a>
+            <span> / </span>
+            <a href="#">忘記密碼?</a>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">確定登入</button>
+          <button class="btn secondary" type="button">清除</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    Copyright 2014 Aristo Securities Limited. All rights reserved.
+  </footer>
+</body>
+</html>
+
+
+
+
+

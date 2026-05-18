@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服務範圍 | A Secretarial Services Limited</title>
+  <meta name="description" content="A Secretarial Services Limited 提供香港會計、薪資、稅務、公司成立、公司秘書、證監會牌照申請、合規支援、盡職審查及技術方案服務。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header header--solid" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="返回主頁">
+        <span class="logo__mark">A</span>
+        <div class="logo__wordmark">
+          <span>A Secretarial Services</span>
+          <span>Limited</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="主導覽">
+        <ul class="desktop-nav__list">
+          <li><a class="desktop-nav__link" href="index.html">主頁</a></li>
+          <li><a class="desktop-nav__link" href="index.html#about">公司簡介</a></li>
+          <li><a class="desktop-nav__link desktop-nav__link--active" href="services.html">服務範圍</a></li>
+          <li><a class="desktop-nav__link desktop-nav__cta" href="index.html#contact">聯繫我們</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="drawer">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="導覽選單">
+    <div class="drawer__head">
+      <a href="index.html" class="logo" aria-label="返回主頁">
+        <span class="logo__mark">A</span>
+        <div class="logo__wordmark">
+          <span>A Secretarial Services</span>
+          <span>Limited</span>
+        </div>
+      </a>
+      <button class="drawer__close" id="drawerClose" aria-label="關閉選單">✕</button>
+    </div>
+    <nav class="drawer__nav" aria-label="行動導覽">
+      <a href="index.html">主頁</a>
+      <a href="index.html#about">公司簡介</a>
+      <a class="active" href="services.html">服務範圍</a>
+      <a href="index.html#contact">聯繫我們</a>
+    </nav>
+    <div class="drawer__foot">
+      <a href="index.html#contact" class="btn btn--gold">立即聯繫</a>
+    </div>
+  </div>
+
+  <section class="page-hero" aria-labelledby="bannerTitle">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">主頁</a>
+        <span>/</span>
+        <span>服務範圍</span>
+      </nav>
+      <h1 class="page-hero__title" id="bannerTitle">我們的服務</h1>
+      <p class="page-hero__desc">全方位企業支援，涵蓋會計、稅務、公司成立、合規及技術方案，助您的業務穩健發展。</p>
+    </div>
+  </section>
+
+  <div class="svc-tabs-mobile" aria-label="服務快速切換" role="tablist">
+    <button class="svc-tab-btn active" data-service="accounting" type="button" role="tab" aria-selected="true">會計</button>
+    <button class="svc-tab-btn" data-service="payroll" type="button" role="tab">薪資</button>
+    <button class="svc-tab-btn" data-service="taxation" type="button" role="tab">稅務</button>
+    <button class="svc-tab-btn" data-service="due-diligence" type="button" role="tab">盡職審查</button>
+  </div>
+
+  <div class="svc-layout container">
+
+    <aside class="svc-sidebar" aria-labelledby="sidebarHeading">
+      <div class="svc-sidebar__inner">
+        <h2 class="svc-sidebar__heading" id="sidebarHeading">服務範圍</h2>
+        <nav class="svc-nav" aria-label="服務列表">
+          <button class="svc-nav__btn active" data-service="accounting" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            會計
+          </button>
+          <button class="svc-nav__btn" data-service="payroll" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            薪資
+          </button>
+          <button class="svc-nav__btn" data-service="taxation" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            稅務
+          </button>
+          <button class="svc-nav__btn" data-service="hk-incorporation" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            香港公司成立
+          </button>
+          <button class="svc-nav__btn" data-service="offshore-incorporation" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+            離岸公司成立
+          </button>
+          <button class="svc-nav__btn" data-service="company-secretary" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            公司秘書
+          </button>
+          <button class="svc-nav__btn" data-service="registered-office" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            註冊辦事處
+          </button>
+          <button class="svc-nav__btn" data-service="sfc-licensing" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6"/><rect x="9" y="16" width="6" height="6"/><rect x="2" y="9" width="6" height="6"/><rect x="16" y="9" width="6" height="6"/><path d="M15 5h2a2 2 0 0 1 2 2v2M15 19h2a2 2 0 0 0 2-2v-2M9 5H7a2 2 0 0 0-2 2v2M9 19H7a2 2 0 0 1-2-2v-2"/></svg>
+            證監會牌照申請
+          </button>
+          <button class="svc-nav__btn" data-service="compliance" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            合規支援
+          </button>
+          <button class="svc-nav__btn" data-service="due-diligence" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            盡職審查
+          </button>
+          <button class="svc-nav__btn" data-service="it-solutions" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            企業技術支援方案
+          </button>
+        </nav>
+        <div class="svc-sidebar__cta">
+          <p>歡迎查詢各項服務詳情</p>
+          <a href="index.html#contact" class="btn btn--gold btn--full">立即聯繫</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="svc-content" id="svcContent">
+
+      <section class="svc-panel active" id="panel-accounting" aria-labelledby="panelAccountingTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">財務支援</span>
+            <h2 class="svc-panel__title" id="panelAccountingTitle">會計</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">我們為客戶提供全面的會計記賬服務，編制準確而及時的財務報告，以符合監管要求並提升決策透明度。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務內容</h3>
+          <ul class="svc-list">
+            <li>設計會計系統與內部流程</li>
+            <li>處理會計帳目及日常記錄</li>
+            <li>編制管理報表及財務分析</li>
+            <li>準備法定財務報表</li>
+            <li>現金流預測與預算管理</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="payroll">薪資服務 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-payroll" aria-labelledby="panelPayrollTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">人力資源</span>
+            <h2 class="svc-panel__title" id="panelPayrollTitle">薪資</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">我們提供全面薪資和強積金管理服務，確保薪資發放準時、數據安全及法規合規。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務內容</h3>
+          <ul class="svc-list">
+            <li>僱員薪酬計算與核對</li>
+            <li>強積金計劃登記及管理</li>
+            <li>工資單編制與發放</li>
+            <li>薪資數據庫維護與報表</li>
+            <li>費用報銷與差旅處理</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="taxation">稅務服務 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-taxation" aria-labelledby="panelTaxationTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">稅務規劃</span>
+            <h2 class="svc-panel__title" id="panelTaxationTitle">稅務</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">我們為個人及企業客戶提供稅務申報與規劃服務，幫助客戶合法節稅並提升稅務合規性。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務範圍</h3>
+          <ul class="svc-list">
+            <li>薪俸稅、利得稅及物業稅申報</li>
+            <li>稅務代表與報稅表遞交</li>
+            <li>利得稅計算及稅務調查支持</li>
+            <li>稅務延期申請與回覆稅局問題</li>
+            <li>稅務規劃與合規諮詢</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="hk-incorporation">香港公司成立 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-hk-incorporation" aria-labelledby="panelHKTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">公司成立</span>
+            <h2 class="svc-panel__title" id="panelHKTitle">香港公司成立</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">提供從公司名稱查冊到註冊資料提交的完整成立流程，協助客戶快速在香港成立公司。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">成立服務</h3>
+          <ul class="svc-list">
+            <li>公司名稱核准與查冊</li>
+            <li>準備及遞交公司註冊文件</li>
+            <li>登記董事、股東及公司秘書資料</li>
+            <li>公司章程及股本安排</li>
+            <li>銀行開戶協調支援</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="offshore-incorporation">離岸公司成立 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-offshore-incorporation" aria-labelledby="panelOffshoreTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">公司成立</span>
+            <h2 class="svc-panel__title" id="panelOffshoreTitle">離岸公司成立</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">為需要海外公司架構的客戶提供離岸註冊及文件準備，以符合當地法規要求。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務項目</h3>
+          <ul class="svc-list">
+            <li>離岸公司名稱查冊與成立</li>
+            <li>準備公司章程與登記資料</li>
+            <li>銀行開戶與業務文件支援</li>
+            <li>提供公司註冊證書與官方文件</li>
+            <li>後續文件維護與管理支援</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="company-secretary">公司秘書 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-company-secretary" aria-labelledby="panelSecretaryTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">公司治理</span>
+            <h2 class="svc-panel__title" id="panelSecretaryTitle">公司秘書</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">提供公司秘書服務，協助管理周年申報、公司文件、董事股東變更及公司合規要求。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務內容</h3>
+          <ul class="svc-list">
+            <li>出任公司秘書及備存公司記錄</li>
+            <li>準備周年申報表及會議紀錄</li>
+            <li>處理公司變更及股權轉讓</li>
+            <li>提供公司查冊及狀況良好證明</li>
+            <li>確保公司符合法律與章程要求</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="registered-office">註冊辦事處 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-registered-office" aria-labelledby="panelOfficeTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">地址服務</span>
+            <h2 class="svc-panel__title" id="panelOfficeTitle">註冊辦事處</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">提供香港註冊辦事處地址服務，協助客戶合法接收政府及監管文件，維持公司註冊地址。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務內容</h3>
+          <ul class="svc-list">
+            <li>提供香港灣仔註冊辦事處地址</li>
+            <li>接收政府及監管文件</li>
+            <li>郵件轉遞與通知處理</li>
+            <li>協助保持法定地址合規</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="sfc-licensing">證監會牌照申請 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-sfc-licensing" aria-labelledby="panelSfcTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6"/><rect x="9" y="16" width="6" height="6"/><rect x="2" y="9" width="6" height="9"/><rect x="16" y="9" width="6" height="6"/><path d="M15 5h2a2 2 0 0 1 2 2v2M15 19h2a2 2 0 0 0 2-2v-2M9 5H7a2 2 0 0 0-2 2v2M9 19H7a2 2 0 0 1-2-2v-2"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">監管合規</span>
+            <h2 class="svc-panel__title" id="panelSfcTitle">證監會牌照申請</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">協助客戶申請 SFC 牌照，提供文件準備、法規檢視、申請跟進及監管機構溝通支援。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務內容</h3>
+          <ul class="svc-list">
+            <li>評估合適牌照類別與申請條件</li>
+            <li>準備及遞交申請文件</li>
+            <li>合規手冊與程序文件撰寫</li>
+            <li>回應監管機構提問</li>
+            <li>協調法律、稅務與會計顧問</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="compliance">合規支援 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-compliance" aria-labelledby="panelComplianceTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">監管合規</span>
+            <h2 class="svc-panel__title" id="panelComplianceTitle">合規支援</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">為持牌機構提供合規監控、文件檢視及培訓服務，幫助企業建立有效的合規體系。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務內容</h3>
+          <ul class="svc-list">
+            <li>設立公司合規系統與程序</li>
+            <li>審閱合規政策與執行程序</li>
+            <li>準備監管提交文件與回應提問</li>
+            <li>年度模擬檢查與合規建議</li>
+            <li>員工合規培訓與風險評估</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="due-diligence">盡職審查 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-due-diligence" aria-labelledby="panelDueTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">風險管理</span>
+            <h2 class="svc-panel__title" id="panelDueTitle">盡職審查</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">我們提供企業、財務、董事及合作夥伴的盡職調查，協助客戶在交易決策前掌握關鍵風險。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務範疇</h3>
+          <ul class="svc-list">
+            <li>企業背景調查與資料核實</li>
+            <li>財務及法律盡職審查</li>
+            <li>董事及高管背景查核</li>
+            <li>商業夥伴及交易對手盡職調查</li>
+            <li>反洗錢（AML）合規檢視</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="it-solutions">企業技術支援 →</a>
+        </div>
+      </section>
+
+      <section class="svc-panel" id="panel-it-solutions" aria-labelledby="panelItTitle">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="svc-panel__meta">
+            <span class="svc-panel__badge">企業科技</span>
+            <h2 class="svc-panel__title" id="panelItTitle">企業技術支援方案</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro">我們支援企業技術需求，包括系統部署、資料備份、網絡設計與企業數碼轉型顧問服務。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title">服務範圍</h3>
+          <ul class="svc-list">
+            <li>電腦硬件及軟件支援</li>
+            <li>資料備份與還原服務</li>
+            <li>系統與網絡優化維護</li>
+            <li>企業數碼化轉型顧問</li>
+            <li>檔案分享與資料管理支援</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--gold">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="accounting">返回會計服務 →</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <section class="cta-banner" aria-label="行動呼籲">
+    <div class="container cta-banner__inner">
+      <div class="cta-banner__text">
+        <h2>準備好開始了嗎？</h2>
+        <p>立即聯絡我們，了解最適合您企業的服務方案。</p>
+      </div>
+      <a href="index.html#contact" class="btn btn--white">立即查詢</a>
+    </div>
+  </section>
+
+  <footer class="footer" aria-label="頁腳">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo" aria-label="返回主頁">
+          <span class="logo__mark footer__logo-mark">A</span>
+          <div class="logo__wordmark">
+            <span class="footer__logo-name">A Secretarial Services</span>
+            <span class="footer__logo-sub">Limited</span>
+          </div>
+        </a>
+        <p>香港企業一站式服務，為本地及離岸公司提供專業企業支援。</p>
+      </div>
+      <nav class="footer__col" aria-label="快速導覽">
+        <h4>快速導覽</h4>
+        <ul>
+          <li><a href="index.html">主頁</a></li>
+          <li><a href="index.html#about">公司簡介</a></li>
+          <li><a href="services.html">服務範圍</a></li>
+          <li><a href="index.html#contact">聯繫我們</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h4>聯絡資料</h4>
+        <p><a href="tel:+85237554998">(852) 3755 4998</a></p>
+        <p>傳真：(852) 3622 1488</p>
+        <p><a href="mailto:info@hklistco.com">info@hklistco.com</a></p>
+        <p>香港灣仔駱克道 20-24 號<br />金星大廈 11 樓</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>Copyright &copy; 2023 A Secretarial Services Limited. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
