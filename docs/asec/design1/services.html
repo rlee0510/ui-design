@@ -11,7 +11,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="index.html" class="logo">
@@ -21,414 +20,423 @@
           <span class="logo__sub">Limited</span>
         </div>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+
+      <div style="display: flex; align-items: center;">
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="lang-switcher">
+          <button id="langToggle" class="lang-toggle" aria-label="語言選擇" aria-expanded="false" aria-controls="langMenu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+          </button>
+          <div id="langMenu" class="lang-menu" hidden>
+            <a href="?lang=zh_HK" class="lang-menu__item">繁體中文</a>
+            <a href="?lang=zh_CN" class="lang-menu__item">简体中文</a>
+            <a href="?lang=en" class="lang-menu__item">English</a>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- NAV -->
   <nav class="nav" id="nav">
     <ul class="nav__list">
-      <li><a class="nav__link" href="index.html">主頁</a></li>
-      <li><a class="nav__link" href="index.html#about">公司簡介</a></li>
-      <li><a class="nav__link nav__link--active" href="services.html">服務範圍</a></li>
-      <li><a class="nav__link nav__link--cta" href="index.html#contact">聯繫我們</a></li>
+      <li><a class="nav__link" href="index.html" data-i18n="nav.home">主頁</a></li>
+      <li><a class="nav__link" href="index.html#about" data-i18n="nav.about">公司簡介</a></li>
+      <li><a class="nav__link nav__link--active" href="services.html" data-i18n="nav.services">服務範圍</a></li>
+      <li><a class="nav__link nav__link--cta" href="index.html#contact" data-i18n="nav.contact">聯繫我們</a></li>
     </ul>
   </nav>
 
-  <!-- PAGE BANNER -->
   <section class="page-banner">
     <div class="container page-banner__inner">
       <nav class="breadcrumb" aria-label="breadcrumb">
-        <a href="index.html">主頁</a>
+        <a href="index.html" data-i18n="nav.home">主頁</a>
         <span aria-hidden="true">/</span>
-        <span id="breadcrumbCurrent">服務範圍</span>
+        <span id="breadcrumbCurrent" data-i18n="services.badge">服務範圍</span>
       </nav>
-      <h1 class="page-banner__title" id="bannerTitle">我們的服務</h1>
-      <p class="page-banner__desc">全方位企業支援，助您的業務穩健發展</p>
+      <h1 class="page-banner__title" id="bannerTitle" data-i18n="services.title"></h1>
+      <p class="page-banner__desc" data-i18n="services.desc">全方位企業支援，助您的業務穩健發展</p>
     </div>
   </section>
 
-  <!-- SERVICE LAYOUT -->
   <div class="svc-layout container">
 
-    <!-- SIDEBAR -->
     <aside class="svc-sidebar">
       <div class="svc-sidebar__inner">
-        <h3 class="svc-sidebar__heading">服務範圍</h3>
+        <h3 class="svc-sidebar__heading" data-i18n="services.badge">服務範圍</h3>
         <nav class="svc-nav">
           <button class="svc-nav__item active" data-service="accounting">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            會計
+            <span data-i18n="service.accounting.title">會計</span>
           </button>
           <button class="svc-nav__item" data-service="payroll">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            薪資
+            <span data-i18n="service.payroll.title">薪資</span>
           </button>
           <button class="svc-nav__item" data-service="taxation">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            稅務
+            <span data-i18n="service.taxation.title">稅務</span>
           </button>
           <button class="svc-nav__item" data-service="hk-incorporation">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            香港公司成立
+            <span data-i18n="service.hk-incorporation.title">香港公司成立</span>
           </button>
           <button class="svc-nav__item" data-service="offshore-incorporation">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            離岸公司成立
+            <span data-i18n="service.offshore-incorporation.title">離岸公司成立</span>
           </button>
           <button class="svc-nav__item" data-service="company-secretary">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            公司秘書
+            <span data-i18n="service.company-secretary.title">公司秘書</span>
+          </button>
+          <button class="svc-nav__item" data-service="registered-office">
+            <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="service.registered-office.title">註冊辦事處</span>
           </button>
           <button class="svc-nav__item" data-service="sfc-licensing">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6"/><rect x="9" y="16" width="6" height="6"/><rect x="2" y="9" width="6" height="6"/><rect x="16" y="9" width="6" height="6"/><path d="M15 5h2a2 2 0 0 1 2 2v2M15 19h2a2 2 0 0 0 2-2v-2M9 5H7a2 2 0 0 0-2 2v2M9 19H7a2 2 0 0 1-2-2v-2"/></svg>
-            證監會牌照申請
+            <span data-i18n="service.sfc-licensing.title">證監會牌照申請</span>
           </button>
           <button class="svc-nav__item" data-service="compliance">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            合規支援
+            <span data-i18n="service.compliance.title">合規支援</span>
           </button>
           <button class="svc-nav__item" data-service="due-diligence">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            盡職審查
+            <span data-i18n="service.due-diligence.title">盡職審查</span>
           </button>
           <button class="svc-nav__item" data-service="it-solutions">
             <svg class="svc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            企業技術支援方案
+            <span data-i18n="service.it-solutions.title">企業技術支援方案</span>
           </button>
         </nav>
 
         <div class="svc-sidebar__cta">
-          <p>歡迎查詢各項服務詳情</p>
-          <a href="index.html#contact" class="btn btn--primary btn--full">立即聯繫</a>
+          <p data-i18n="sidebar.cta-text">歡迎查詢各項服務詳情</p>
+          <a href="index.html#contact" class="btn btn--primary btn--full" data-i18n="btn.contact">立即聯繫</a>
         </div>
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main class="svc-content" id="svcContent">
 
-      <!-- ACCOUNTING -->
       <div class="svc-panel active" id="panel-accounting">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">財務支援</span>
-            <h2 class="svc-panel__title">會計</h2>
+            <span class="svc-panel__badge" data-i18n="service.accounting.badge">財務支援</span>
+            <h2 class="svc-panel__title" data-i18n="service.accounting.title">會計</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們為客戶提供全面的會計記賬服務，編制準確而及時的報告，以遵從財務報告規定。</p>
+        <p class="svc-panel__intro" data-i18n="service.accounting.desc">我們為客戶提供全面的會計記賬服務，編制準確而及時的報告，以遵從財務報告規定。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務內容</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.accounting.content-title">服務內容</h3>
           <ul class="svc-list">
-            <li>設計會計系統</li>
-            <li>處理會計賬目及記錄</li>
-            <li>定期編制管理賬目</li>
-            <li>編制財務預算及現金流預測報告</li>
-            <li>編制法定財務報表及相關科目明細</li>
+            <li data-i18n="service.accounting.bullet1">設計會計系統</li>
+            <li data-i18n="service.accounting.bullet2">處理會計賬目及記錄</li>
+            <li data-i18n="service.accounting.bullet3">定期編制管理賬目</li>
+            <li data-i18n="service.accounting.bullet4">編制財務預算及現金流預測報告</li>
+            <li data-i18n="service.accounting.bullet5">編制法定財務報表及相關科目明細</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="payroll">薪資服務 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="payroll" data-i18n="service.next-payroll">薪資服務 →</a>
         </div>
       </div>
 
-      <!-- PAYROLL -->
       <div class="svc-panel" id="panel-payroll">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">人力資源</span>
-            <h2 class="svc-panel__title">薪資</h2>
+            <span class="svc-panel__badge" data-i18n="service.payroll.badge">人力資源</span>
+            <h2 class="svc-panel__title" data-i18n="service.payroll.title">薪資</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們提供全面的人力資源管理服務，以確保能遵守相關法律及法規。</p>
+        <p class="svc-panel__intro" data-i18n="service.payroll.desc">我們提供全面的人力資源管理服務，以確保能遵守相關法律及法規。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務內容</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.payroll.content-title">服務內容</h3>
           <ul class="svc-list">
-            <li>僱員薪酬計算</li>
-            <li>僱員薪酬及退休金支薪及處理</li>
-            <li>向僱員擬備工資單</li>
-            <li>設置及維護工資數據庫及福利檔案</li>
-            <li>填報顧主及顧員薪俸稅表</li>
-            <li>顧主的強制性公積金（強積金）計劃登記</li>
-            <li>員工費用報銷處理</li>
+            <li data-i18n="service.payroll.bullet1">僱員薪酬計算</li>
+            <li data-i18n="service.payroll.bullet2">僱員薪酬及退休金支薪及處理</li>
+            <li data-i18n="service.payroll.bullet3">向僱員擬備工資單</li>
+            <li data-i18n="service.payroll.bullet4">設置及維護工資數據庫及福利檔案</li>
+            <li data-i18n="service.payroll.bullet5">填報顧主及顧員薪俸稅表</li>
+            <li data-i18n="service.payroll.bullet6">顧主的強制性公積金（強積金）計劃登記</li>
+            <li data-i18n="service.payroll.bullet7">員工費用報銷處理</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="taxation">稅務服務 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="taxation" data-i18n="service.next-taxation">稅務服務 →</a>
         </div>
       </div>
 
-      <!-- TAXATION -->
       <div class="svc-panel" id="panel-taxation">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">稅務規劃</span>
-            <h2 class="svc-panel__title">稅務</h2>
+            <span class="svc-panel__badge" data-i18n="service.taxation.badge">稅務規劃</span>
+            <h2 class="svc-panel__title" data-i18n="service.taxation.title">稅務</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們為個人及公司客戶提供全面的稅務諮詢、稅務規劃及稅務申報。</p>
+        <p class="svc-panel__intro" data-i18n="service.taxation.desc">我們為個人及公司客戶提供全面的稅務諮詢、稅務規劃及稅務申報。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">擬備及提交報稅表</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.taxation.section1-title">擬備及提交報稅表</h3>
           <ul class="svc-list">
-            <li>薪俸稅</li>
-            <li>利得稅</li>
-            <li>物業稅</li>
-            <li>僱主報稅表</li>
+            <li data-i18n="service.taxation.section1.bullet1">薪俸稅</li>
+            <li data-i18n="service.taxation.section1.bullet2">利得稅</li>
+            <li data-i18n="service.taxation.section1.bullet3">物業稅</li>
+            <li data-i18n="service.taxation.section1.bullet4">僱主報稅表</li>
           </ul>
-          <h3 class="svc-panel__section-title" style="margin-top:28px;">其他稅務服務</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.taxation.section2-title">其他稅務服務</h3>
           <ul class="svc-list">
-            <li>出任稅務代表</li>
-            <li>擬備利得稅計算表</li>
-            <li>申請報稅延期</li>
-            <li>處理稅務調查、實地審計</li>
-            <li>提供稅務計劃及諮詢</li>
-            <li>回覆稅務局提問</li>
+            <li data-i18n="service.taxation.section2.bullet1">出任稅務代表</li>
+            <li data-i18n="service.taxation.section2.bullet2">擬備利得稅計算表</li>
+            <li data-i18n="service.taxation.section2.bullet3">申請報稅延期</li>
+            <li data-i18n="service.taxation.section2.bullet4">處理稅務調查、實地審計</li>
+            <li data-i18n="service.taxation.section2.bullet5">提供稅務計劃及諮詢</li>
+            <li data-i18n="service.taxation.section2.bullet6">回覆稅務局提問</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="hk-incorporation">香港公司成立 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="hk-incorporation" data-i18n="service.next-hk-incorporation">香港公司成立 →</a>
         </div>
       </div>
 
-      <!-- HK INCORPORATION -->
       <div class="svc-panel" id="panel-hk-incorporation">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">公司成立</span>
-            <h2 class="svc-panel__title">香港公司成立</h2>
+            <span class="svc-panel__badge" data-i18n="service.hk-incorporation.badge">公司成立</span>
+            <h2 class="svc-panel__title" data-i18n="service.hk-incorporation.title">香港公司成立</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們提供全方位的在岸公司成立服務，協助本地及海外投資者在港建立業務。</p>
+        <p class="svc-panel__intro" data-i18n="service.hk-incorporation.desc">我們提供全方位的在岸公司成立服務。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務內容</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.hk-incorporation.content-title">服務內容</h3>
           <ul class="svc-list">
-            <li>成立有限公司</li>
-            <li>成立海外附屬公司（分行、子公司、代表辦事處）</li>
-            <li>成立合夥業務</li>
-            <li>成立獨資經營業務</li>
-            <li>成立香港公司辦事處</li>
-            <li>協助開立銀行戶口</li>
+            <li data-i18n="service.hk-incorporation.bullet1">成立有限公司</li>
+            <li data-i18n="service.hk-incorporation.bullet2">成立海外附屬公司（分行、子公司、代表辦事處）</li>
+            <li data-i18n="service.hk-incorporation.bullet3">成立合夥業務</li>
+            <li data-i18n="service.hk-incorporation.bullet4">成立獨資經營業務</li>
+            <li data-i18n="service.hk-incorporation.bullet5">成立香港公司辦事處</li>
+            <li data-i18n="service.hk-incorporation.bullet6">協助開立銀行戶口</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="offshore-incorporation">離岸公司成立 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="offshore-incorporation" data-i18n="service.next-offshore-incorporation">離岸公司成立 →</a>
         </div>
       </div>
 
-      <!-- OFFSHORE INCORPORATION -->
       <div class="svc-panel" id="panel-offshore-incorporation">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">公司成立</span>
-            <h2 class="svc-panel__title">離岸公司成立</h2>
+            <span class="svc-panel__badge" data-i18n="service.offshore-incorporation.badge">公司成立</span>
+            <h2 class="svc-panel__title" data-i18n="service.offshore-incorporation.title">離岸公司成立</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們提供全方位的離岸公司成立服務，協助客戶在海外司法管轄區建立業務架構。</p>
+        <p class="svc-panel__intro" data-i18n="service.offshore-incorporation.desc">我們提供全方位的離岸公司成立服務，協助客戶在海外司法管轄區建立業務架構。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">提供離岸公司成立的服務及文件</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.offshore-incorporation.content-title">提供離岸公司成立的服務及文件</h3>
           <ul class="svc-list">
-            <li>成立離岸公司</li>
-            <li>公司名稱查冊</li>
-            <li>準備及遞交文件</li>
-            <li>公司董事、股東及要員名冊</li>
-            <li>公司章程</li>
-            <li>公司股票簿</li>
-            <li>金屬鋼印及公司簽名章</li>
-            <li>公司註冊證書</li>
-            <li>公司文件盒（綠盒）</li>
+            <li data-i18n="service.offshore-incorporation.bullet1">成立離岸公司</li>
+            <li data-i18n="service.offshore-incorporation.bullet2">公司名稱查冊</li>
+            <li data-i18n="service.offshore-incorporation.bullet3">準備及遞交文件</li>
+            <li data-i18n="service.offshore-incorporation.bullet4">公司董事、股東及要員名冊</li>
+            <li data-i18n="service.offshore-incorporation.bullet5">公司章程</li>
+            <li data-i18n="service.offshore-incorporation.bullet6">公司股票簿</li>
+            <li data-i18n="service.offshore-incorporation.bullet7">金屬鋼印及公司簽名章</li>
+            <li data-i18n="service.offshore-incorporation.bullet8">公司註冊證書</li>
+            <li data-i18n="service.offshore-incorporation.bullet9">公司文件盒 (綠盒)</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="company-secretary">公司秘書 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="company-secretary" data-i18n="service.next-company-secretary">公司秘書 →</a>
         </div>
       </div>
 
-      <!-- COMPANY SECRETARY -->
+      <div class="svc-panel" id="panel-registered-office">
+        <div class="svc-panel__header">
+          <div class="svc-panel__icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <span class="svc-panel__badge" data-i18n="service.registered-office.badge">地址服務</span>
+            <h2 class="svc-panel__title" data-i18n="service.registered-office.title">註冊辦事處</h2>
+          </div>
+        </div>
+        <p class="svc-panel__intro" data-i18n="service.registered-office.desc">我們提供註冊辦事處服務，幫助客戶以最便捷的方式成功進駐當地市場。</p>
+        <div class="svc-panel__body">
+          <h3 class="svc-panel__section-title" data-i18n="service.registered-office.content-title">服務內容</h3>
+          <ul class="svc-list">
+            <li data-i18n="service.registered-office.bullet1">提供香港商業地址以供客戶作為公司註冊辦事處</li>
+            <li data-i18n="service.registered-office.bullet2">代收郵件</li>
+            <li data-i18n="service.registered-office.bullet3">及時以電郵形式通知客戶收取郵件</li>
+            <li data-i18n="service.registered-office.bullet4">快遞安排</li>
+          </ul>
+        </div>
+        <div class="svc-panel__footer">
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="sfc-licensing" data-i18n="service.next-sfc-licensing">證監會牌照申請 →</a>
+        </div>
+      </div>
+
       <div class="svc-panel" id="panel-company-secretary">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">公司治理</span>
-            <h2 class="svc-panel__title">公司秘書</h2>
+            <span class="svc-panel__badge" data-i18n="service.company-secretary.badge">公司治理</span>
+            <h2 class="svc-panel__title" data-i18n="service.company-secretary.title">公司秘書</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們提供全方位的公司秘書服務，以簡化客戶的營運，讓客戶能夠專注於業務的發展及利潤。</p>
+        <p class="svc-panel__intro" data-i18n="service.company-secretary.desc">我們提供全方位的公司秘書服務，以簡化客戶的營運，讓客戶能夠專注於業務發展及利潤。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務內容</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.company-secretary.content-title">服務內容</h3>
           <ul class="svc-list">
-            <li>出任公司秘書</li>
-            <li>準備及提交周年申報表</li>
-            <li>準備公司周年大會的會議紀錄</li>
-            <li>為海外公司提供「公司狀況良好證明書」</li>
-            <li>為海外公司提供「國際認證」文件</li>
-            <li>提供公司查冊</li>
-            <li>提供更改「公司詳情」服務：更改董事、股東或公司秘書；更改／轉讓公司股份；更改公司名稱；更改公司註冊辦事處地址；更改董事細節</li>
-            <li>確保公司符合相關法律及法規</li>
+            <li data-i18n="service.company-secretary.bullet1">出任公司秘書</li>
+            <li data-i18n="service.company-secretary.bullet2">準備及提交周年申報表</li>
+            <li data-i18n="service.company-secretary.bullet3">準備公司周年大會的會議紀錄</li>
+            <li data-i18n="service.company-secretary.bullet4">為海外公司提供 "公司狀況良好證明書"</li>
+            <li data-i18n="service.company-secretary.bullet5">為海外公司提供 "國際認證" 文件</li>
+            <li data-i18n="service.company-secretary.bullet6">提供公司查冊</li>
+            <li data-i18n="service.company-secretary.bullet7">提供更改 "公司詳情" 服務
+              <ul class="svc-list svc-list--nested">
+                <li data-i18n="service.company-secretary.bullet7.nested1">更改董事、股東或公司秘書</li>
+                <li data-i18n="service.company-secretary.bullet7.nested2">更改／轉讓公司股份</li>
+                <li data-i18n="service.company-secretary.bullet7.nested3">更改公司名稱</li>
+                <li data-i18n="service.company-secretary.bullet7.nested4">更改公司註冊辦事處地址</li>
+                <li data-i18n="service.company-secretary.bullet7.nested5">更改董事細節</li>
+              </ul>
+            </li>
+            <li data-i18n="service.company-secretary.bullet8">確保公司符合相關法律及法規</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="sfc-licensing">證監會牌照申請 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="sfc-licensing" data-i18n="service.next-sfc-licensing">證監會牌照申請 →</a>
         </div>
       </div>
 
-      <!-- SFC LICENSING -->
       <div class="svc-panel" id="panel-sfc-licensing">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6"/><rect x="9" y="16" width="6" height="6"/><rect x="2" y="9" width="6" height="6"/><rect x="16" y="9" width="6" height="6"/><path d="M15 5h2a2 2 0 0 1 2 2v2M15 19h2a2 2 0 0 0 2-2v-2M9 5H7a2 2 0 0 0-2 2v2M9 19H7a2 2 0 0 1-2-2v-2"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">監管合規</span>
-            <h2 class="svc-panel__title">證監會牌照申請</h2>
+            <span class="svc-panel__badge" data-i18n="service.sfc-licensing.badge">監管合規</span>
+            <h2 class="svc-panel__title" data-i18n="service.sfc-licensing.title">證監會牌照申請</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們成功為不少證監會持牌機構及其員工申請相關證監會牌照，提供專業的全程支援。</p>
+        <p class="svc-panel__intro" data-i18n="service.sfc-licensing.desc">我們成功為不少證監會持牌機構及其員工申請相關證監會牌照，提供專業的全程支援。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務內容</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.sfc-licensing.content-title">服務內容</h3>
           <ul class="svc-list">
-            <li>評估持牌負責人員和代表的能力，及是否一個適當、適合的人選</li>
-            <li>提供關於公司結構及商業計劃的意見</li>
-            <li>準備及提交牌照申請表格</li>
-            <li>與監管機構聯絡</li>
-            <li>處理及回覆證監會書信提問</li>
-            <li>牌照條件的談判</li>
-            <li>編制牌照申請文件，其中包括審查和修改申請表格，協助準備申請牌照的合規手冊和其他所有必要的文件</li>
-            <li>有需要時，負責與其他顧問聯絡，確保與牌照申請相關的法律、稅務和會計方面的問題都得到解決，擔任客戶與監管機構的中間聯繫人</li>
+            <li data-i18n="service.sfc-licensing.bullet1">評估持牌負責人員和代表的能力，及是否一個適當、適合的人選</li>
+            <li data-i18n="service.sfc-licensing.bullet2">提供關於公司結構及商業計劃的意見</li>
+            <li data-i18n="service.sfc-licensing.bullet3">準備及提交牌照申請表格</li>
+            <li data-i18n="service.sfc-licensing.bullet4">與監管機構聯絡</li>
+            <li data-i18n="service.sfc-licensing.bullet5">處理及回覆證監會書信提問</li>
+            <li data-i18n="service.sfc-licensing.bullet6">牌照條件的談判</li>
+            <li data-i18n="service.sfc-licensing.bullet7">編制牌照申請文件，其中包括審查和修改申請表格，協助準備申請牌照的合規手冊和其他所有必要的文件</li>
+            <li data-i18n="service.sfc-licensing.bullet8">有需要時，負責與其他顧問聯絡，確保與牌照申請相關的法律、稅務和會計方面的問題都得到解決，擔任客戶與監管機構的中間聯繫人</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="compliance">合規支援 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="compliance" data-i18n="service.next-compliance">合規支援 →</a>
         </div>
       </div>
 
-      <!-- COMPLIANCE -->
       <div class="svc-panel" id="panel-compliance">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">監管合規</span>
-            <h2 class="svc-panel__title">合規支援</h2>
+            <span class="svc-panel__badge" data-i18n="service.compliance.badge">監管合規</span>
+            <h2 class="svc-panel__title" data-i18n="service.compliance.title">合規支援</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們提供合規支援協助持牌機構及持牌人識別風險事項，以確保合規功能有效地運作。</p>
+        <p class="svc-panel__intro" data-i18n="service.compliance.desc">我們提供合規支援協助持牌機構及持牌人識別風險事項，以確保合規功能有效地運作。</p>
         <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務內容</h3>
+          <h3 class="svc-panel__section-title" data-i18n="service.compliance.content-title">服務內容</h3>
           <ul class="svc-list">
-            <li>為客戶設立公司合規系統</li>
-            <li>審閱合規政策及程序</li>
-            <li>處理監管機構的書信提問及向監管機構提交文件</li>
-            <li>進行年度證監會現場模擬檢查報告及建議</li>
-            <li>提供合規培訓</li>
-            <li>特別合規咨詢及協助</li>
+            <li data-i18n="service.compliance.bullet1">為客戶設立公司合規系統</li>
+            <li data-i18n="service.compliance.bullet2">審閱合規政策及程序</li>
+            <li data-i18n="service.compliance.bullet3">處理監管機構的書信提問及向監管機構提交文件</li>
+            <li data-i18n="service.compliance.bullet4">進行年度證監會現場模擬檢查報告及建議</li>
+            <li data-i18n="service.compliance.bullet5">提供合規培訓</li>
+            <li data-i18n="service.compliance.bullet6">特別合規咨詢及協助</li>
           </ul>
         </div>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="due-diligence">盡職審查 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="due-diligence" data-i18n="service.next-due-diligence">盡職審查 →</a>
         </div>
       </div>
 
-      <!-- DUE DILIGENCE -->
       <div class="svc-panel" id="panel-due-diligence">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">風險管理</span>
-            <h2 class="svc-panel__title">盡職審查</h2>
+            <span class="svc-panel__badge" data-i18n="service.due-diligence.badge">風險管理</span>
+            <h2 class="svc-panel__title" data-i18n="service.due-diligence.title">盡職審查</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們的專業團隊會為客戶提供盡職審查報告及建議，符合客戶的需要及期望，有效降低商業交易風險。</p>
-        <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務範疇</h3>
-          <ul class="svc-list">
-            <li>企業背景調查及核實</li>
-            <li>公司財務及法律盡職審查</li>
-            <li>董事及高管背景核查</li>
-            <li>商業夥伴盡職審查</li>
-            <li>反洗錢（AML）合規審查</li>
-            <li>提供詳細盡職審查報告及建議</li>
-          </ul>
-        </div>
+        <p class="svc-panel__intro" data-i18n="service.due-diligence.desc">我們的專業團隊會為客戶提供盡職審查報告及建議，符合客戶的需要及期望，有效降低商業交易風險。</p>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="it-solutions">企業技術支援 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="it-solutions" data-i18n="service.next-it-solutions">企業技術支援 →</a>
         </div>
       </div>
 
-      <!-- IT SOLUTIONS -->
       <div class="svc-panel" id="panel-it-solutions">
         <div class="svc-panel__header">
           <div class="svc-panel__icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
           <div>
-            <span class="svc-panel__badge">企業科技</span>
-            <h2 class="svc-panel__title">企業技術支援方案</h2>
+            <span class="svc-panel__badge" data-i18n="service.it-solutions.badge">企業科技</span>
+            <h2 class="svc-panel__title" data-i18n="service.it-solutions.title">企業技術支援方案</h2>
           </div>
         </div>
-        <p class="svc-panel__intro">我們提供企業技術支援方案轉介服務，為客戶提供全面的資訊技術解決方案，提升企業運營效率。</p>
-        <div class="svc-panel__body">
-          <h3 class="svc-panel__section-title">服務範疇</h3>
-          <ul class="svc-list">
-            <li>電腦硬件及軟件支援</li>
-            <li>檔案分享及資料轉移</li>
-            <li>資料備份及還原</li>
-            <li>系統優化及維護</li>
-            <li>網絡設計及部署</li>
-            <li>企業數碼化轉型顧問</li>
-          </ul>
-        </div>
+        <p class="svc-panel__intro" data-i18n="service.it-solutions.desc">我們提供企業技術支援方案轉介服務，為客戶提供全面的資訊技術解決方案，提升企業運營效率。</p>
         <div class="svc-panel__footer">
-          <a href="index.html#contact" class="btn btn--primary">查詢此服務</a>
-          <a href="#" class="svc-panel__next" data-next="accounting">返回會計服務 →</a>
+          <a href="index.html#contact" class="btn btn--primary" data-i18n="service.inquire">查詢此服務</a>
+          <a href="#" class="svc-panel__next" data-next="accounting" data-i18n="service.next-return">返回會計服務 →</a>
         </div>
       </div>
 
-    </main><!-- /svc-content -->
-  </div><!-- /svc-layout -->
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
+    </main></div><section class="cta-banner">
     <div class="container cta-banner__inner">
       <div class="cta-banner__text">
-        <h2>準備好開始了嗎？</h2>
-        <p>立即聯絡我們，了解最適合您企業的服務方案。</p>
+        <h2 data-i18n="cta.title">準備好開始了嗎？</h2>
+        <p data-i18n="cta.desc">立即聯絡我們，了解最適合您企業的服務方案。</p>
       </div>
-      <a href="index.html#contact" class="btn btn--white">立即查詢</a>
+      <a href="index.html#contact" class="btn btn--white" data-i18n="service.inquire">立即查詢</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -439,32 +447,33 @@
             <span class="logo__sub">Limited</span>
           </div>
         </a>
-        <p>香港企業一站式服務</p>
+        <p data-i18n="footer.tagline">香港企業一站式服務</p>
       </div>
       <nav class="footer__nav">
-        <h4>快速導覽</h4>
+        <h4 data-i18n="footer.quick-links">快速導覽</h4>
         <ul>
-          <li><a href="index.html">主頁</a></li>
-          <li><a href="index.html#about">公司簡介</a></li>
-          <li><a href="services.html">服務範圍</a></li>
-          <li><a href="index.html#contact">聯繫我們</a></li>
+          <li><a href="index.html" data-i18n="nav.home">主頁</a></li>
+          <li><a href="index.html#about" data-i18n="nav.about">公司簡介</a></li>
+          <li><a href="services.html" data-i18n="nav.services">服務範圍</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">聯繫我們</a></li>
         </ul>
       </nav>
       <div class="footer__contact">
-        <h4>聯絡資料</h4>
-        <p><a href="tel:+85237554998">(852) 3755 4998</a></p>
-        <p><a href="mailto:info@hklistco.com">info@hklistco.com</a></p>
-        <p>香港灣仔駱克道20-24號金星大廈11樓</p>
+        <h4 data-i18n="footer.contact">聯絡資料</h4>
+        <p><a href="tel:+85237554998" data-i18n="contact.phone">(852) 3775 4091</a></p>
+        <p><a href="mailto:info@hklistco.com" data-i18n="contact.email">info@hklistco.com</a></p>
+        <p data-i18n="contact.address">香港灣仔晏頓街1號安定大廈7樓701室</p>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <p>Copyright &copy; 2023 A Secretarial Services Limited. All rights reserved.</p>
+        <p data-i18n="footer.copyright">Copyright &copy; 2023 A Secretarial Services Limited. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="i18n.js" data-site="design1"></script>
   <script>
     // Service panel switcher
     const navItems = document.querySelectorAll('.svc-nav__item');
@@ -479,6 +488,7 @@
       'hk-incorporation':       '香港公司成立',
       'offshore-incorporation': '離岸公司成立',
       'company-secretary':      '公司秘書',
+      'registered-office':      '註冊辦事處',
       'sfc-licensing':          '證監會牌照申請',
       'compliance':             '合規支援',
       'due-diligence':          '盡職審查',
@@ -488,29 +498,24 @@
     function switchService(id) {
       navItems.forEach(b => b.classList.toggle('active', b.dataset.service === id));
       panels.forEach(p  => p.classList.toggle('active', p.id === 'panel-' + id));
-      const label = labels[id] || '服務範圍';
-      breadcrumbCurrent.textContent = label;
-      bannerTitle.textContent = label;
-      document.title = label + ' | A Secretarial Services Limited';
+      breadcrumbCurrent.dataset.i18n = `service.${id}.title`;
+      console.log(id);
+      document.dispatchEvent(new CustomEvent('languageChange'));
+      document.title = getLabel(`service.${id}.title`) + ' | A Secretarial Services Limited';
       // scroll content top on mobile
-      document.getElementById('svcContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // document.getElementById('svcContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     navItems.forEach(btn => {
       btn.addEventListener('click', () => switchService(btn.dataset.service));
     });
 
-    // "Next service" links inside panels
     document.querySelectorAll('.svc-panel__next').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         switchService(link.dataset.next);
       });
     });
-
-    // Load from hash if present  e.g. services.html#payroll
-    const hash = location.hash.replace('#', '');
-    if (hash && labels[hash]) switchService(hash);
   </script>
 </body>
 </html>

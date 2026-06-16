@@ -22,21 +22,38 @@
         </div>
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div style="display: flex; align-items: center;">
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="lang-switcher">
+          <button id="langToggle" class="lang-toggle" aria-label="語言選擇" aria-expanded="false" aria-controls="langMenu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+            </svg>
+          </button>
+          <div id="langMenu" class="lang-menu" hidden>
+            <a href="?lang=zh_HK" class="lang-menu__item">繁體中文</a>
+            <a href="?lang=zh_CN" class="lang-menu__item">简体中文</a>
+            <a href="?lang=en" class="lang-menu__item">English</a>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- NAV (sibling of header — avoids stacking-context overlap on mobile) -->
   <nav class="nav" id="nav">
     <ul class="nav__list">
-      <li><a class="nav__link" href="#home">主頁</a></li>
-      <li><a class="nav__link" href="#about">公司簡介</a></li>
-      <li><a class="nav__link" href="#services">服務範圍</a></li>
-      <li><a class="nav__link nav__link--cta" href="#contact">聯繫我們</a></li>
+      <li><a class="nav__link" href="#home" data-i18n="nav.home">主頁</a></li>
+      <li><a class="nav__link" href="#about" data-i18n="nav.about">公司簡介</a></li>
+      <li><a class="nav__link" href="#services" data-i18n="nav.services">服務範圍</a></li>
+      <li><a class="nav__link nav__link--cta" href="#contact" data-i18n="nav.contact">聯繫我們</a></li>
     </ul>
   </nav>
 
@@ -44,16 +61,12 @@
   <section class="hero" id="home">
     <div class="hero__bg"></div>
     <div class="container hero__content">
-      <p class="hero__eyebrow">香港企業一站式服務</p>
-      <h1 class="hero__title">
-        專業。可信賴。<br />全方位企業支援。
-      </h1>
-      <p class="hero__desc">
-        A Secretarial Services Limited 為香港及離岸企業提供全面的商業支援服務，助您專注業務增長。
-      </p>
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">香港企業一站式服務</p>
+      <h1 class="hero__title" data-i18n-html="hero.title">專業。可信賴。<br />全方位企業支援。</h1>
+      <p class="hero__desc" data-i18n="hero.desc">A Secretarial Services Limited 為香港及離岸企業提供全面的商業支援服務，助您專注業務增長。</p>
       <div class="hero__actions">
-        <a href="#services" class="btn btn--primary">瀏覽服務</a>
-        <a href="#contact" class="btn btn--outline">立即聯繫</a>
+        <a href="#services" class="btn btn--primary" data-i18n="btn.browse">瀏覽服務</a>
+        <a href="#contact" class="btn btn--outline" data-i18n="btn.contact">立即聯繫</a>
       </div>
     </div>
     <div class="hero__scroll-indicator" aria-hidden="true">
@@ -64,23 +77,23 @@
   <!-- ABOUT -->
   <section class="about section" id="about">
     <div class="container about__inner">
-      <div class="about__badge">公司簡介</div>
-      <h2 class="section__title">一站式企業服務，助力您的業務</h2>
-      <p class="about__text">
+      <div class="about__badge" data-i18n="about.badge">公司簡介</div>
+      <h2 class="section__title" data-i18n="about.title">一站式企業服務，助力您的業務</h2>
+      <p class="about__text" data-i18n="about.text">
         A Secretarial Services Limited 於香港提供一站式企業服務，服務範圍涵括會計、薪資、稅務、香港及離岸公司成立、公司秘書、證監會牌照申請、合規支援、盡職審查及企業技術支援方案。
       </p>
       <div class="about__stats">
         <div class="stat">
           <span class="stat__num">10+</span>
-          <span class="stat__label">服務類別</span>
+          <span class="stat__label" data-i18n="about.stats.services">服務類別</span>
         </div>
         <div class="stat">
           <span class="stat__num">HK</span>
-          <span class="stat__label">香港本地專業</span>
+          <span class="stat__label" data-i18n="about.stats.hk">香港本地專業</span>
         </div>
         <div class="stat">
           <span class="stat__num">360°</span>
-          <span class="stat__label">全方位企業支援</span>
+          <span class="stat__label" data-i18n="about.stats.comprehensive">全方位企業支援</span>
         </div>
       </div>
     </div>
@@ -90,9 +103,9 @@
   <section class="services section" id="services">
     <div class="container">
       <div class="section__header">
-        <div class="about__badge">服務範圍</div>
-        <h2 class="section__title">我們提供的專業服務</h2>
-        <p class="section__desc">從公司成立到日常營運，我們為您的企業提供全面支援</p>
+        <div class="about__badge" data-i18n="services.badge">服務範圍</div>
+        <h2 class="section__title" data-i18n="services.title">我們提供的專業服務</h2>
+        <p class="section__desc" data-i18n="services.desc">從公司成立到日常營運，我們為您的企業提供全面支援</p>
       </div>
       <div class="services__grid">
 
@@ -100,81 +113,81 @@
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
-          <h3 class="service-card__title">會計</h3>
-          <p class="service-card__desc">專業會計及財務報表服務，確保帳目準確合規。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.accounting.title">會計</h3>
+          <p class="service-card__desc" data-i18n="service.accounting.desc">專業會計及財務報表服務，確保帳目準確合規。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#payroll">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
-          <h3 class="service-card__title">薪資</h3>
-          <p class="service-card__desc">薪資計算、強積金管理及員工報酬一站式處理。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.payroll.title">薪資</h3>
+          <p class="service-card__desc" data-i18n="service.payroll.desc">薪資計算、強積金管理及員工報酬一站式處理。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#taxation">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
-          <h3 class="service-card__title">稅務</h3>
-          <p class="service-card__desc">稅務申報、規劃及顧問服務，為企業節省稅項開支。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.taxation.title">稅務</h3>
+          <p class="service-card__desc" data-i18n="service.taxation.desc">稅務申報、規劃及顧問服務，為企業節省稅項開支。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#hk-incorporation">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
-          <h3 class="service-card__title">香港及離岸公司成立</h3>
-          <p class="service-card__desc">協助本地及海外投資者在香港或離岸地區快速成立公司。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.hk-incorporation.title">香港及離岸公司成立</h3>
+          <p class="service-card__desc" data-i18n="service.hk-incorporation.desc">協助本地及海外投資者在香港或離岸地區快速成立公司。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#company-secretary">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3 class="service-card__title">公司秘書</h3>
-          <p class="service-card__desc">法定公司秘書職能，確保公司架構合規運作。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.company-secretary.title">公司秘書</h3>
+          <p class="service-card__desc" data-i18n="service.company-secretary.desc">法定公司秘書職能，確保公司架構合規運作。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#sfc-licensing">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6"/><rect x="9" y="16" width="6" height="6"/><rect x="2" y="9" width="6" height="6"/><rect x="16" y="9" width="6" height="6"/><path d="M15 5h2a2 2 0 0 1 2 2v2M15 19h2a2 2 0 0 0 2-2v-2M9 5H7a2 2 0 0 0-2 2v2M9 19H7a2 2 0 0 1-2-2v-2"/></svg>
           </div>
-          <h3 class="service-card__title">證監會牌照申請</h3>
-          <p class="service-card__desc">協助申請證監會（SFC）受規管活動牌照，處理申請文件及合規要求。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.sfc-licensing.title">證監會牌照申請</h3>
+          <p class="service-card__desc" data-i18n="service.sfc-licensing.desc">協助申請證監會（SFC）受規管活動牌照，處理申請文件及合規要求。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#compliance">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3 class="service-card__title">合規支援</h3>
-          <p class="service-card__desc">持續合規監控及建議，協助企業達到監管要求。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.compliance.title">合規支援</h3>
+          <p class="service-card__desc" data-i18n="service.compliance.desc">持續合規監控及建議，協助企業達到監管要求。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#due-diligence">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
-          <h3 class="service-card__title">盡職審查</h3>
-          <p class="service-card__desc">全面企業及背景調查，降低商業風險，保障投資決策。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.due-diligence.title">盡職審查</h3>
+          <p class="service-card__desc" data-i18n="service.due-diligence.desc">全面企業及背景調查，降低商業風險，保障投資決策。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
         <a class="service-card" href="services.html#it-solutions">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
-          <h3 class="service-card__title">企業技術支援方案</h3>
-          <p class="service-card__desc">為企業提供資訊技術及數碼化解決方案，提升運營效率。</p>
-          <span class="service-card__link">了解更多 →</span>
+          <h3 class="service-card__title" data-i18n="service.it-solutions.title">企業技術支援方案</h3>
+          <p class="service-card__desc" data-i18n="service.it-solutions.desc">為企業提供資訊技術及數碼化解決方案，提升運營效率。</p>
+          <span class="service-card__link" data-i18n="service.link">了解更多 →</span>
         </a>
 
       </div>
@@ -185,9 +198,9 @@
   <section class="contact section" id="contact">
     <div class="container contact__inner">
       <div class="section__header">
-        <div class="about__badge">聯繫我們</div>
-        <h2 class="section__title">與我們取得聯繫</h2>
-        <p class="section__desc">我們的專業團隊隨時為您服務</p>
+        <div class="about__badge" data-i18n="contact.badge">聯繫我們</div>
+        <h2 class="section__title" data-i18n="contact.title">與我們取得聯繫</h2>
+        <p class="section__desc" data-i18n="contact.desc">我們的專業團隊隨時為您服務</p>
       </div>
       <div class="contact__grid">
         <div class="contact__info">
@@ -196,8 +209,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
             <div>
-              <h4>公司名稱</h4>
-              <p>A Secretarial Services Limited</p>
+              <h4 data-i18n="contact.company-name-label">公司名稱</h4>
+              <p data-i18n="contact.company-name">A Secretarial Services Limited</p>
             </div>
           </div>
           <div class="contact-item">
@@ -205,8 +218,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div>
-              <h4>電話</h4>
-              <p><a href="tel:+85237554998">(852) 3755 4998</a></p>
+              <h4 data-i18n="contact.phone-label">電話</h4>
+              <p><a href="tel:+85237554998" data-i18n="contact.phone">(852) 3775 4091</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -214,8 +227,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
             <div>
-              <h4>傳真</h4>
-              <p>(852) 3622 1488</p>
+              <h4 data-i18n="contact.fax-label">傳真</h4>
+              <p data-i18n="contact.fax">(852) 3622 1488</p>
             </div>
           </div>
           <div class="contact-item">
@@ -223,8 +236,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div>
-              <h4>電郵</h4>
-              <p><a href="mailto:info@hklistco.com">info@hklistco.com</a></p>
+              <h4 data-i18n="contact.email-label">電郵</h4>
+              <p><a href="mailto:info@hklistco.com" data-i18n="contact.email">info@hklistco.com</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -232,15 +245,15 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <h4>地址</h4>
-              <p>香港灣仔駱克道20-24號<br />金星大廈11樓</p>
+              <h4 data-i18n="contact.address-label">地址</h4>
+              <p data-i18n="contact.address">Room 701, 7/F, Anton Building, 1 Anton Street, Wan Chai, Hong Kong</p>
             </div>
           </div>
         </div>
 
         <div class="contact__form-card">
-          <h3>我們的位置</h3>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.203815816662!2d114.17365!3d22.28107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404007c7c7c7c7d%3A0x1234567890abc!2s20-24%20Lockhart%20Road%2C%20Wan%20Chai%2C%20Hong%20Kong!5e0!3m2!1sen!2shk!4v1715970000000" width="100%" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <h3 data-i18n="map.location">我們的位置</h3>
+          <iframe src="https://maps.google.com/maps?width=600&height=450&hl=en&q=Room 701, 7/F, Anton Building, 1 Anton Street, Wan Chai, Hong Kong&t=&z=18&ie=UTF8&iwloc=B&output=embed" width="100%" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -257,31 +270,32 @@
             <span class="logo__sub">Limited</span>
           </div>
         </a>
-        <p>香港企業一站式服務</p>
+        <p data-i18n="footer.tagline">香港企業一站式服務</p>
       </div>
       <nav class="footer__nav">
-        <h4>快速導覽</h4>
+        <h4 data-i18n="footer.quick-links">快速導覽</h4>
         <ul>
-          <li><a href="#home">主頁</a></li>
-          <li><a href="#about">公司簡介</a></li>
-          <li><a href="#services">服務範圍</a></li>
-          <li><a href="#contact">聯繫我們</a></li>
+          <li><a href="#home" data-i18n="nav.home">主頁</a></li>
+          <li><a href="#about" data-i18n="nav.about">公司簡介</a></li>
+          <li><a href="#services" data-i18n="nav.services">服務範圍</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">聯繫我們</a></li>
         </ul>
       </nav>
       <div class="footer__contact">
-        <h4>聯絡資料</h4>
-        <p><a href="tel:+85237554998">(852) 3755 4998</a></p>
-        <p><a href="mailto:info@hklistco.com">info@hklistco.com</a></p>
-        <p>香港灣仔駱克道20-24號金星大廈11樓</p>
+        <h4 data-i18n="footer.contact">聯絡資料</h4>
+        <p><a href="tel:+85237554998" data-i18n="contact.phone">(852) 3775 4091</a></p>
+        <p><a href="mailto:info@hklistco.com" data-i18n="contact.email">info@hklistco.com</a></p>
+        <p data-i18n="contact.address">香港灣仔晏頓街1號安定大廈7樓701室</p>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <p>Copyright &copy; 2023 A Secretarial Services Limited. All rights reserved.</p>
+        <p data-i18n="footer.copyright">Copyright &copy; 2023 A Secretarial Services Limited. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="i18n.js" data-site="design1"></script>
 </body>
 </html>
