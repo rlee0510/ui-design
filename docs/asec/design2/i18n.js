@@ -41,9 +41,14 @@ const translations = {
     'about.badge': '公司簡介',
     'about.title': '一站式企業服務，助力您的業務',
     'about.text': 'A Secretarial Services Limited 於香港提供一站式企業服務，服務範圍涵括會計、薪資、稅務、香港及離岸公司成立、公司秘書、證監會牌照申請、合規支援、盡職審查及企業技術支援方案。',
+    'about.desc': '我們的專業團隊致力為客戶提供高質素、度身訂製的解決方案，確保企業在複雜的監管環境下合規運作，同時提升整體運營效率。',
     'about.stats.services': '服務類別',
     'about.stats.hk': '香港本地專業',
     'about.stats.comprehensive': '全方位企業支援',
+    'about.feature1': '監管合規專業支援',
+    'about.feature2': '豐富本地市場經驗',
+    'about.feature3': '涵蓋本地及離岸業務',
+    'about.feature4': '企業技術數碼化支援',
 
     // Services Section & General Layout Labels
     'services.badge': '服務範圍',
@@ -206,6 +211,18 @@ const translations = {
     'service.sfc-licensing.body': '<h3 class="svc-panel__section-title">服務內容</h3><ul class="svc-list"><li>評估持牌負責人員和代表的能力，及是否一個適當、適合的人選</li><li>提供關於公司結構及商業計劃的意見</li><li>準備及提交牌照申請表格</li><li>與監管機構聯絡</li><li>處理及回覆證監會書信提問</li><li>牌照條件的談判</li><li>編制牌照申請文件，其中包括審查和修改申請表格，協助準備申請牌照的合規手冊和其他所有必要的文件</li><li>有需要時，負責與其他顧問聯絡，確保與牌照申請相關的法律、稅務和會計方面的問題都得到解決，擔任客戶與監管機構的中間聯繫人</li></ul>',
     'service.compliance.body': '<h3 class="svc-panel__section-title">服務內容</h3><ul class="svc-list"><li>為客戶設立公司合規系統</li><li>審閱合規政策及程序</li><li>處理監管機構的書信提問及向監管機構提交文件</li><li>進行年度證監會現場模擬檢查報告及建議</li><li>提供合規培訓</li><li>特別合規咨詢及協助</li></ul>',
 
+    'why.badge': '為何選擇我們',
+    'why.text': '值得信賴的企業服務夥伴',
+    'why.desc': '我們以專業知識和本地經驗，為每位客戶提供切合需要的解決方案',
+    'why.feature1': '一站式企業服務',
+    'why.feature1.desc': '從公司成立、日常會計薪資，到合規監控及技術支援，所有服務由同一專業團隊提供，省去多方協調的煩惱。',
+    'why.feature2': '深厚本地監管知識',
+    'why.feature2.desc': '團隊具備豐富的香港公司法規及證監會(SFC)監管知識，確保客戶的業務在複雜的法規環境下穩健合規運作。',
+    'why.feature3': '度身訂製服務方案',
+    'why.feature3.desc': '充分了解客戶的業務需求及目標，提供針對性的建議及解決方案，而非套用固定模板，確保服務真正切合需要。',
+    'why.feature4': '靈活快速的回應',
+    'why.feature4.desc': '我們重視客戶時間，承諾快速回應查詢及處理事務，讓客戶可以安心專注於業務發展，無需擔憂行政及合規事宜。',
+
     // Contact
     'contact.badge': '聯繫我們',
     'contact.title': '與我們取得聯繫',
@@ -271,9 +288,14 @@ const translations = {
     'about.badge': '公司简介',
     'about.title': '一站式企业服务，助力您的业务',
     'about.text': 'A Secretarial Services Limited 在香港提供一站式企业服务，服务范围涵盖会计、薪资、税务、香港及离岸公司成立、公司秘书、证监会牌照申请、合规支援、尽职审查及企业技术支援方案。',
+    'about.desc': '我们的专业团队致力为客户提供高质素、度身订制的解决方案，确保企业在复杂的监管环境下合规运作，同时提升整体运营效率。',
     'about.stats.services': '服务类别',
     'about.stats.hk': '香港本地专业',
     'about.stats.comprehensive': '全方位企业支援',
+    'about.feature1': '监管合规专业支援',
+    'about.feature2': '丰富本地市场经验',
+    'about.feature3': '涵盖本地及离岸业务',
+    'about.feature4': '企业技术数码化支援',
 
     // Services Section & General Layout Labels
     'services.badge': '服务范围',
@@ -436,6 +458,18 @@ const translations = {
     'service.sfc-licensing.body': '<h3 class="svc-panel__section-title">服务内容</h3><ul class="svc-list"><li>评估持牌负责人员和代表的能力，及是否一个适当、适合的人选</li><li>提供关于公司结构及商业计划的意见</li><li>准备及提交牌照申请表格</li><li>与监管机构联络</li><li>处理及回复证监会书信提问</li><li>牌照条件的谈判</li><li>编制牌照申请文件，其中包括审查和修改申请表格，协助准备申请牌照的合规手册和其他所有必要的文件</li><li>有需要时，负责与其他顾问联络，确保与牌照申请相关的法律、税务和会计方面的问题都得到解决，担任客户与监管机构中间的联系人</li></ul>',
     'service.compliance.body': '<h3 class="svc-panel__section-title">服务内容</h3><ul class="svc-list"><li>为客户设立公司合规系统</li><li>审阅合规政策及程序</li><li>处理监管机构的书信提问及向监管机构提交文件</li><li>进行年度证监会现场模拟检查报告及建议</li><li>提供合规培训</li><li>特别合规咨询及协助</li></ul>',
 
+    'why.badge': '为何选择我们',
+    'why.text': '值得信赖的企业服务伙伴',
+    'why.desc': '我们以专业知识和本地经验，为每位客户提供切合需要的解决方案',
+    'why.feature1': '一站式企业服务',
+    'why.feature1.desc': '从公司成立、日常会计薪资，到合规监控及技术支援，所有服务由同一专业团队提供，省去多方协调的烦恼。',
+    'why.feature2': '深厚本地监管知识',
+    'why.feature2.desc': '团队具备丰富的香港公司法规及证监会(SFC)监管知识，确保客户的业务在复杂的法规环境下稳健合规运作。',
+    'why.feature3': '度身订制服务方案',
+    'why.feature3.desc': '充分了解客户的业务需求及目标，提供针对性的建议及解决方案，而非套用固定模板，确保服务真正切合需要。',
+    'why.feature4': '灵活快速的回应',
+    'why.feature4.desc': '我们重视客户时间，承诺快速回应查询及处理事务，让客户可以安心专注于业务发展，无需担忧行政及合规事宜。',
+
     // Contact
     'contact.badge': '联系我们',
     'contact.title': '与我们取得联系',
@@ -501,9 +535,14 @@ const translations = {
     'about.badge': 'About',
     'about.title': 'One-stop corporate services to power your business',
     'about.text': 'A Secretarial Services Limited offers a wide range of corporate services in Hong Kong. Our services including Accounting, Payroll, Taxation, Hong Kong Company Incorporation, Offshore Company Incorporation, Company Secretary, Registered Office, SFC Licensing, Compliance Support, Due Diligence and Corporate IT Solutions.',
+    'about.desc': 'Our team of professionals is committed to providing clients with high-quality, customized solutions that ensure businesses operate in compliance with regulations in a complex regulatory environment, while improving overall operational efficiency.',
     'about.stats.services': 'Service Categories',
     'about.stats.hk': 'Hong Kong Local Services',
     'about.stats.comprehensive': 'Comprehensive Business Support',
+    'about.feature1': 'Professional support for regulatory compliance',
+    'about.feature2': 'Extensive experience in the local market',
+    'about.feature3': 'Coverage of both local and offshore operations',
+    'about.feature4': 'Support for corporate digital transformation',
 
     // Services Section & General Layout Labels
     'services.badge': 'Services',
@@ -665,6 +704,18 @@ const translations = {
     'service.company-secretary.body': '<ul class="svc-list"><li>Acting as company secretary</li><li>Preparation and submission of Annual Returns</li><li>Preparation of minutes for Annual General Meetings</li><li>Providing "Certificate of Good Standing" for offshore companies</li><li>Providing "Apostille/Notarization" documents for offshore companies</li><li>Provision of company searches</li><li>Provision of services for changing "Company Particulars"<ul class="svc-list svc-list--nested"><li>Change of directors, shareholders, or company secretary</li><li>Change / Transfer of company shares</li><li>Change of company name</li><li>Change of company registered office address</li><li>Change of directors\' particulars</li></ul></li><li>Ensuring company compliance with relevant laws and regulations</li></ul>',
     'service.sfc-licensing.body': '<h3 class="svc-panel__section-title">Scope of Services</h3><ul class="svc-list"><li>Assessing the competence of Responsible Officers and Representatives, and whether they are fit and proper persons</li><li>Providing advice on corporate structure and business plans</li><li>Preparation and submission of licensing application forms</li><li>Liaising with regulatory bodies</li><li>Handling and responding to SFC correspondence and enquiries</li><li>Negotiation of licensing conditions</li><li>Compiling licensing application documents, including reviewing and amending application forms, assisting in the preparation of compliance manuals and all other necessary documents for the license application</li><li>When necessary, liaising with other consultants to ensure that legal, tax, and accounting matters related to the license application are resolved, acting as an intermediary contact between the client and the regulatory body</li></ul>',
     'service.compliance.body': '<h3 class="svc-panel__section-title">Scope of Services</h3><ul class="svc-list"><li>Establishing corporate compliance systems for clients</li><li>Reviewing compliance policies and procedures</li><li>Handling regulatory correspondence, enquiries, and submitting documents to regulatory authorities</li><li>Conducting annual mock SFC on-site inspections, providing reports and recommendations</li><li>Providing compliance training</li><li>Special compliance advisory and assistance</li></ul>',
+
+    'why.badge': 'Why Choose Us',
+    'why.text': 'A Trusted Business Services Partner',
+    'why.desc': 'We use our expertise and local experience to provide each client with tailored solutions',
+    'why.feature1': 'One-Stop Business Services',
+    'why.feature1.desc': 'From company incorporation and day-to-day accounting and payroll to compliance monitoring and technical support, all services are provided by a single team of professionals, eliminating the hassle of coordinating with multiple parties.',
+    'why.feature2': 'In-Depth Knowledge of Local Regulations',
+    'why.feature2.desc': `Our team possesses extensive knowledge of Hong Kong corporate laws and Securities and Futures Commission (SFC) regulations, ensuring our clients' businesses operate in a robust and compliant manner within a complex regulatory environment.`,
+    'why.feature3': 'Tailored Service Solutions',
+    'why.feature3.desc': `By fully understanding clients' business needs and goals, we provide targeted advice and solutions rather than applying fixed templates, ensuring our services truly meet their needs.`,
+    'why.feature4': 'Flexible and Prompt Responses',
+    'why.feature4.desc': `We value our clients' time and are committed to responding quickly to inquiries and handling matters efficiently, allowing clients to focus on business development with peace of mind, free from concerns about administrative and compliance issues.`,
 
     // Contact
     'contact.badge': 'Contact Us',
