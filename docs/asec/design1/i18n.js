@@ -212,11 +212,9 @@ const translations = {
     'contact.company-name-label': '公司名稱',
     'contact.company-name': 'A Secretarial Services Limited',
     'contact.phone-label': '電話',
-    'contact.phone': '(852) 3775 4091',
     'contact.fax-label': '傳真',
     'contact.fax': '(852) 3622 1488',
     'contact.email-label': '電郵',
-    'contact.email': 'info@hklistco.com',
     'contact.address-label': '地址',
     'contact.address': '香港灣仔晏頓街1號安定大廈7樓701室',
 
@@ -442,11 +440,9 @@ const translations = {
     'contact.company-name-label': '公司名称',
     'contact.company-name': 'A Secretarial Services Limited',
     'contact.phone-label': '电话',
-    'contact.phone': '(852) 3775 4091',
     'contact.fax-label': '传真',
     'contact.fax': '(852) 3622 1488',
     'contact.email-label': '电邮',
-    'contact.email': 'info@hklistco.com',
     'contact.address-label': '地址',
     'contact.address': '香港湾仔晏顿街1号安定大厦7楼701室',
 
@@ -672,11 +668,9 @@ const translations = {
     'contact.company-name-label': 'Company Name',
     'contact.company-name': 'A Secretarial Services Limited',
     'contact.phone-label': 'Phone',
-    'contact.phone': '(852) 3775 4091',
     'contact.fax-label': 'Fax',
     'contact.fax': '(852) 3622 1488',
     'contact.email-label': 'Email',
-    'contact.email': 'info@hklistco.com',
     'contact.address-label': 'Address',
     'contact.address': 'Room 701, 7/F, Anton Building, 1 Anton Street, Wan Chai, Hong Kong',
 
@@ -735,6 +729,21 @@ function applyTranslations(lang){
     if (dict[key]) el.placeholder = dict[key];
   });
   document.documentElement.lang = lang;
+
+  const googleMapIframe = document.querySelector('#map');
+  if (googleMapIframe != null) {
+    const url = new URL(googleMapIframe.src);
+    if (lang === 'zh_HK') {
+      url.searchParams.set('hl', 'zh-HK');
+    }
+    else if (lang === 'zh_CN') {
+      url.searchParams.set('hl', 'zh-CN');
+    }
+    else{
+      url.searchParams.set('hl', 'en');
+    }
+    googleMapIframe.src = url.toString();
+  }
 }
 
 function getLanguage() {
@@ -751,8 +760,6 @@ function init(){
   const menu = document.getElementById('langMenu');
   const menuItems = menu ? menu.querySelectorAll('a') : [];
   const langSelect = document.getElementById('langSelect');
-  const langLinks = document.querySelector('.lang-switcher-links');
-  const langLinkItems = langLinks ? langLinks.querySelectorAll('a') : [];
   const lang = getLanguage();
   const saved = lang || getCookie(cookieName) || defaultLang;
 
@@ -804,25 +811,11 @@ function init(){
     });
   }
 
-  if (langSelect){
+  if (langSelect) {
     langSelect.addEventListener('change', ()=>{
       const langCode = langSelect.value;
       const urlParam = langCode === 'en' ? 'en' : langCode === 'zh_CN' ? 'zh_CN' : 'zh_HK';
       setLanguage(langCode, urlParam);
-    });
-  }
-
-  if (langLinkItems.length){
-    langLinkItems.forEach(item => {
-      item.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const href = item.getAttribute('href');
-        const langMatch = href.match(/lang=([^&]+)/);
-        if (langMatch){
-          const langCode = mapLangParam(langMatch[1]);
-          setLanguage(langCode, langMatch[1]);
-        }
-      });
     });
   }
 
