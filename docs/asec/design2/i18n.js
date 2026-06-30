@@ -724,7 +724,7 @@ const translations = {
     'contact.fax': '(852) 3622 1488',
     'contact.email-label': 'Email',
     'contact.address-label': 'Address',
-    'contact.address': 'Room 701, 7/F, Anton Building, 1 Anton Street, Wan Chai, Hong Kong',
+    'contact.address': 'Room 701, 7/F, Anton Building, 1 Anton Street, Wanchai, Hong Kong',
 
     // Map & Form
     'map.location': 'Our Location',
